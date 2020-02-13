@@ -1,0 +1,4 @@
+services:
+#    module_chapitre_cours.example:
+#        class: ModuleChapitreCoursBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

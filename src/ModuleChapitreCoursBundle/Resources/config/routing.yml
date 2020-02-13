@@ -1,0 +1,15 @@
+module_chapitre_cours_homepage:
+    path:     /Matiere/{id}/Modules
+    defaults: { _controller: ModuleChapitreCoursBundle:Module:index }
+
+module_chapitre_coursf_homepage:
+    path:     /Module/{id}/Chapitres
+    defaults: { _controller: ModuleChapitreCoursBundle:Chapitre:index }
+
+chapitre_delete:
+    path:     /Chapitre/{id}/{lastid}
+    defaults: { _controller: ModuleChapitreCoursBundle:Chapitre:del }
+
+module_delete:
+    path:     /Module/{id}/{lastid}
+    defaults: { _controller: ModuleChapitreCoursBundle:Module:del }

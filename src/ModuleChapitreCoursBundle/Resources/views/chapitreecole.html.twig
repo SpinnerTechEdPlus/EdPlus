@@ -1,0 +1,132 @@
+{% extends 'base_ecole.html.twig' %}
+{% block content %}
+
+    <div class="page-header">
+        <a style="text-decoration: none;" href="/Matiere/{{ module.matiere.id }}/Modules" ><h3 class="page-title">
+                <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                  <i class="mdi mdi-book"></i>
+                </span> {{ module.nom }} </h3> </a>
+        <nav aria-label="breadcrumb">
+            <ul class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page">
+                    <a href="javascript:void(0)" onclick="$('#addChapitre').show(); $('#editChapitre').hide();"><span>Ajouter un nouveau chapitre</span></a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="col-12 grid-margin stretch-card" id="addChapitre">
+        <div class="card">
+            <div class="card-body">
+                <a style="float : right;" href="javascript:void(0)"
+                   onclick="$('#addChapitre').hide();"><i class="mdi mdi-close"
+                                                          style="color : #cc2127 ; width:  150%; margin-top : -10%; "></i></a>
+                <br>
+                <h4 class="card-description">Ajouter un chapitre</h4>
+                <form class="form-inline" method="post">
+                    <input name="nom" id="nom" type="text" class="form-control mb-2 mr-sm-2" id="nvNomChapitre"
+                           placeholder="Le nom du chapitre" style="width: 80%;">
+                    <input type="submit" name="ajouter" id="ajouter" value="Ajouter" class="btn btn-gradient-primary mb-2">
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-12 grid-margin stretch-card" id="editChapitre">
+
+        <div class="card">
+            <div class="card-body">
+                <a style="float : right;" href="javascript:void(0)"
+                   onclick="$('#editChapitre').hide();$('#addChapitre').hide(); $('#addNewChapitre').show();"><i
+                            class="mdi mdi-close"
+                            style="color : #cc2127 ; width:  150%; margin-top : -10%; "></i></a>
+                <br>
+                <h4 class="card-description">Modifier un chapitre</h4>
+                <form class="form-inline" method="post">
+
+                    <input  hidden id="idChapitre" name="idChapitre" type="text">
+                    <input name="mnom" id="mnom" type="text" class="form-control mb-2 mr-sm-2"
+                           style="width: 80%;" placeholder="Le nouveau nom du chapitre . . .">
+
+                    <input name="modifier" id="modifier" value="Modifier" type="submit" class="btn btn-gradient-primary mb-2">
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>
+                            <center>Chapitre</center>
+                        </th>
+                        <th>
+                            <center>Cours</center>
+                        </th>
+                        <th>
+                            <center>Modifier</center>
+                        </th>
+                        <th>
+                            <center>Supprimer</center>
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for chapitre in chapitres %}
+                    <tr>
+                        <td id="nomChapitre{{ chapitre.id }}">{{ chapitre.nom }}</td>
+                        <td>
+                            <center>
+                                <a class="nav-link" href="#">
+
+                                    <i class="mdi mdi-book-open-variant"></i>
+
+                                </a>
+                            </center>
+                        </td>
+                        <td>
+                            <center>
+                                <a class="nav-link" href="javascript:void(0)" onclick="edit({{ chapitre.id }});">
+                                    <i class="mdi mdi-border-color menu-icon"></i>
+                                </a>
+                            </center>
+                        </td>
+                        <td>
+                            <center>
+                                <a class="nav-link" href="/Chapitre/{{ chapitre.id }}/{{ module.id }}">
+                                    <i class="mdi mdi-delete menu-icon"></i>
+                                </a>
+                            </center>
+                        </td>
+                    </tr >
+                  {% endfor %}
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+{% block javascript %}
+    <script>
+        $("#addChapitre").hide();
+        $("#editChapitre").hide();
+
+        function edit(id) {
+            $("#idChapitre").val(id);
+            $("#mnom").val($("#nomChapitre" + id).html());
+            $('html, body').animate({scrollTop: 0}, 'fast');
+            $("#editChapitre").show();
+            $("#addChapitre").hide();
+        }
+    </script>
+    {% endblock %}
