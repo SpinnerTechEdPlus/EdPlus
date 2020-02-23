@@ -1,0 +1,40 @@
+{% extends 'base_ecole.html.twig' %}
+{% block content %}
+    {{ form_start(form) }}
+
+
+
+
+
+
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">ajouter Matière</h4>
+                <form class="forms-sample">
+                    <div class="form-group">
+                        <label for="exampleInputName1">nom du matière</label>
+                        {{form_widget(form.nom)}}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputName1">User</label>
+
+                        {{form_widget(form.niveau,{ 'attr' : { 'class' : 'form-control' } })}}
+                    </div>
+
+
+
+
+                    {{ form_end(form) }}
+
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

@@ -1,3 +1,10 @@
+gestion_niveaux:
+  resource: "@GestionNiveauxBundle/Resources/config/routing.yml"
+  prefix:   /
+mail:
+  resource: "@MailBundle/Resources/config/routing.yml"
+  prefix:   /mail
+
 utilisateurs:
     resource: "@UtilisateursBundle/Resources/config/routing.yml"
     prefix:   /users

@@ -3,6 +3,8 @@ imports:
     - { resource: security.yml }
     - { resource: services.yml }
     - { resource: "@UtilisateursBundle/Resources/config/services.yml" }
+    - { resource: "@GestionNiveauxBundle/Resources/config/services.yml" }
+    - { resource: "@MailBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -63,6 +65,8 @@ doctrine:
 swiftmailer:
     transport: '%mailer_transport%'
     host: '%mailer_host%'
+    port: '%mailer_port%'
+    encryption: '%mailer_encryption%'
     username: '%mailer_user%'
     password: '%mailer_password%'
     spool: { type: memory }
@@ -78,5 +82,8 @@ fos_user:
     service:
         mailer: fos_user.mailer.twig_swift
     from_email:
-        address: "badiaa.bouhdid@esprit.tn"
-        sender_name: "badi3a"
+      address: "eyapidev@gmail.com"
+      sender_name: "Eyaa"
+
+cmen_google_charts:
+  version: "current"

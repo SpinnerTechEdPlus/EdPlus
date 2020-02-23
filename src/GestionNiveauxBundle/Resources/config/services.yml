@@ -1,0 +1,4 @@
+services:
+#    gestion_niveaux.example:
+#        class: GestionNiveauxBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

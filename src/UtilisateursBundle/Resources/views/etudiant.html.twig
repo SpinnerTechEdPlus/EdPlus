@@ -1,0 +1,118 @@
+{% extends 'base_ecole.html.twig' %}
+{% block content %}
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <!--<div class="form-group">
+                    <label for="exampleInputName1">Nom</label>
+                    <input type="text" class="form-control" id="exampleInputName1" placeholder="Nom du nouveau module">
+                </div>
+                <div class="form-group">
+
+                    <a class="nav-link" href="file:///C:/Users/LENOVO/Desktop/PurpleAdmin-Free-Admin-Template-master/ed+%20template/pages/icons/mdi.html">
+                        <button type="submit" class="btn btn-gradient-primary mr-2">Ajouter</button>
+                    </a>
+                    </li>
+                </div> -->
+                <div class="form-group">
+                    <a class="btn btn-gradient-info mr-2" href="{{path('etudiant_homepage')}}"> La liste des etudiants </a>
+                </div>
+
+                <form action="{{path('etudiant_search')}}" method="post">
+
+
+
+
+                    <div class="form-group">
+
+                        <input type="text" class="form-control" name="username" placeholder="Username">
+                    </div>
+
+                    <div class="form-group">
+
+                        <input class="btn btn-gradient-primary mr-2" type="submit"  value="Rechercher">
+                    </div>
+
+
+
+                </form>
+
+
+
+
+
+
+
+
+                <div  class="form-group" align="right">
+                    <a class="btn btn-gradient-light btn-rounded btn-fw" data-toggle="collapse" href="#ui-filter-classe" aria-expanded="false" aria-controls="ui-basic">
+                        <span class="menu-title">filter by classe</span>
+                        <i class="menu-arrow"></i>
+                        <i class="mdi mdi-filter-outline"></i>
+                    </a>
+                    <div class="collapse" id="ui-filter-classe">
+                        <ul class="nav flex-column sub-menu">
+                            <form action="{{path('etudiant_search_classe')}}" method="post">
+
+
+                                {% for classe in classe %}
+
+                                    <div>
+
+                                        <input type="radio" id= "{{ classe.id}}" name="classe[]" value="{{ classe.id}}"
+                                        >
+                                        <label for="scales">{{classe.nom}}</label>
+                                    </div>
+
+                                {% endfor %}
+
+                                <div class="form-group">
+
+                                    <input class="btn btn-gradient-light mr-2 btn-sm" type="submit"  value="Rechercher">
+                                </div>
+                            </form>
+                        </ul>
+                    </div>
+                </div>
+
+
+
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th> # </th>
+                        <th> Nom et Prenom </th>
+                        <th> email </th>
+                        <th> classe </th>
+                        <th> Modifier </th>
+                        <th> Supprimer </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for etudiant in etudiants %}
+                    <tr>
+                        <td> {{ etudiant.id }} </td>
+                        <td> {{ etudiant.username }} </td>
+                        <td>
+                            {{etudiant.email}}
+                        </td>
+                        <td>
+                            {{etudiant.classe}}
+                        </td>
+
+                        <td>  <a class="nav-link" href="{{path('updateEtudiant',{'id': etudiant.id}) }}">         <i class="mdi mdi-border-color menu-icon"></i>
+                            </a>
+                            </li>		 </td>
+                        <td>  <a class="nav-link" href="{{path('deleteEtudiant',{'id': etudiant.id}) }}">         <i class="mdi mdi-delete menu-icon"></i>
+                            </a>
+                            </li>		 </td>
+
+
+                    </tr>
+                    </tbody>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

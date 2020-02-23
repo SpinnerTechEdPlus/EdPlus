@@ -1,0 +1,128 @@
+{% extends 'base_ecole.html.twig' %}
+
+
+{% block content %}
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+
+                <div class="form-group">
+                 <a class="btn btn-gradient-info mr-2" href="{{path('professor_homepage')}}"> La liste des professeurs </a>
+                </div>
+
+                <form action="{{path('professeur_search')}}" method="post">
+
+
+
+
+
+
+                        <div class="form-group">
+
+                            <input type="text" class="form-control" name="username" placeholder="Username">
+                        </div>
+
+                    <div class="form-group">
+
+                        <input class="btn btn-gradient-primary mr-2" type="submit"  value="Rechercher">
+                    </div>
+
+
+
+                </form>
+
+
+
+
+                    <div class="form-group" align="right">
+                        <a class="btn btn-gradient-light btn-rounded btn-fw" data-toggle="collapse" href="#ui-filter-matiere" aria-expanded="false" aria-controls="ui-basic">
+                            <span class="menu-title">filter by matiere</span>
+                            <i class="menu-arrow"></i>
+                            <i class="mdi mdi-filter-outline"></i>
+                        </a>
+                        <div class="collapse" id="ui-filter-matiere">
+                            <ul class="nav flex-column sub-menu">
+                                <form action="{{path('professeur_search_matiere')}}" method="post">
+
+
+                                    {% for matiere in matiere %}
+
+                                        <div>
+
+                                            <input type="radio" id= "{{ matiere.id}}" name="matiere[]" value="{{ matiere.id}}"
+                                            >
+                                            <label for="scales">{{matiere.nom}}</label>
+                                        </div>
+
+                                    {% endfor %}
+
+
+
+
+
+                                    <div class="form-group">
+
+                                        <input class="btn btn-gradient-light mr-2 btn-sm" type="submit"  value="Rechercher">
+                                    </div>
+                                </form>
+                                 </ul>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th> # </th>
+                        <th> Nom et Prenom </th>
+                        <th> email </th>
+                        <th> matiere </th>
+                        <th> Modifier </th>
+                        <th> Supprimer </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for professor in professors %}
+                    <tr>
+                        <td> {{ professor.id}} </td>
+                        <td> {{ professor.username}}</td>
+                        <td>
+                            {{professor.email}}
+                        </td>
+                        <td>
+                            {{professor.matiere}}
+                        </td>
+
+                        <td>  <a class="nav-link" href="{{path('updateProfesseur',{'id': professor.id}) }}">         <i class="mdi mdi-border-color menu-icon"></i>
+                            </a>
+                            </li>		 </td>
+                        <td>  <a class="nav-link" href="{{path('deleteProfesseur',{'id': professor.id}) }}">         <i class="mdi mdi-delete menu-icon"></i>
+                            </a>
+                            </li>		 </td>
+
+
+                    </tr>
+                    </tbody>
+                    {% endfor %}
+                </table>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

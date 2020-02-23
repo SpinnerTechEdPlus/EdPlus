@@ -1,7 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5ff53382-9682-4bb6-9070-8a6f7e0b0f4e" name="Default Changelist" comment="" />
+    <list default="true" id="5ff53382-9682-4bb6-9070-8a6f7e0b0f4e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/MailBundle/Controller/DefaultController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MailBundle/Controller/mailController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MailBundle/Entity/mail.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MailBundle/Form/mailType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MailBundle/MailBundle.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MailBundle/Repository/mailRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MailBundle/Resources/config/routing.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MailBundle/Resources/config/services.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MailBundle/Resources/views/Default/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MailBundle/Resources/views/mail/send_mail.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MailBundle/Tests/Controller/mailControllerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/AppKernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/AppKernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/base_ecole.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/base_ecole.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/routing.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GestionNiveauxBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GestionNiveauxBundle/Controller/DefaultController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GestionNiveauxBundle/Controller/classeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GestionNiveauxBundle/Controller/classeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GestionNiveauxBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/GestionNiveauxBundle/Resources/config/routing.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UtilisateursBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UtilisateursBundle/Controller/DefaultController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UtilisateursBundle/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UtilisateursBundle/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UtilisateursBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/UtilisateursBundle/Resources/config/routing.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UtilisateursBundle/Resources/views/etudiant.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/UtilisateursBundle/Resources/views/etudiant.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UtilisateursBundle/Resources/views/professor.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/UtilisateursBundle/Resources/views/professor.html.twig" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +53,13 @@
     <expand />
     <select />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
   <component name="FrameworkCommandLineHistory">
     <commandsHistory>
       <command text="s generate:controller" />
@@ -44,7 +76,13 @@
     </commandsHistory>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/EdPlus" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -88,14 +126,18 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/common" />
       <path value="$PROJECT_DIR$/vendor/doctrine/annotations" />
       <path value="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle" />
+      <path value="$PROJECT_DIR$/vendor/friendsofsymfony/message-bundle" />
+      <path value="$PROJECT_DIR$/vendor/cmen/google-charts-bundle" />
     </include_path>
   </component>
   <component name="ProjectId" id="1XciXJS40LjX4TORthxmiUiNYsG" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Gestion" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -103,13 +145,22 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
+    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/src/UtilisateursBundle/Form/UserType.php" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\Ed+\src" />
+      <recent name="C:\wamp64\www\Ed+\src\UtilisateursBundle\Resources\views\FormViews" />
+      <recent name="C:\wamp64\www\Ed+\app\Resources\FOSUserBundle" />
       <recent name="C:\wamp64\www\Ed+\app\Resources\FOSUserBundle\views" />
       <recent name="D:\6 - Work\00 - Esprit\3A\PI\ED+\www\Ed+\web\Back_assets" />
-      <recent name="D:\6 - Work\00 - Esprit\3A\PI\ED+\www\Ed+\web" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\Ed+\src\UtilisateursBundle\Resources\views\FormViews" />
+      <recent name="C:\wamp64\www\Ed+\src\UtilisateursBundle\Resources\views" />
+      <recent name="C:\wamp64\www\Ed+\app\Resources\FOSUserBundle" />
+      <recent name="C:\wamp64\www\Ed+\app\Resources\FOSUserBundle\Resources" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -145,8 +196,38 @@
       <workItem from="1581456644054" duration="12716000" />
       <workItem from="1581472445345" duration="5586000" />
       <workItem from="1581519656642" duration="88000" />
-      <workItem from="1581519766332" duration="5931000" />
+      <workItem from="1581519766332" duration="20179000" />
+      <workItem from="1581551432352" duration="8580000" />
+      <workItem from="1581587197631" duration="4363000" />
+      <workItem from="1581598720608" duration="511000" />
+      <workItem from="1581968847040" duration="11030000" />
+      <workItem from="1582022010867" duration="2762000" />
+      <workItem from="1582029079365" duration="13118000" />
+      <workItem from="1582042943589" duration="4320000" />
+      <workItem from="1582048558779" duration="6225000" />
+      <workItem from="1582056857472" duration="8923000" />
+      <workItem from="1582115696129" duration="6641000" />
+      <workItem from="1582130075945" duration="6490000" />
+      <workItem from="1582140027388" duration="6443000" />
+      <workItem from="1582147371076" duration="7884000" />
+      <workItem from="1582155733757" duration="10500000" />
+      <workItem from="1582189164941" duration="2915000" />
+      <workItem from="1582382638675" duration="14000" />
+      <workItem from="1582383016890" duration="11220000" />
+      <workItem from="1582394717667" duration="6451000" />
+      <workItem from="1582401575535" duration="797000" />
+      <workItem from="1582460961200" duration="3552000" />
+      <workItem from="1582464613307" duration="4192000" />
+      <workItem from="1582470668778" duration="6803000" />
     </task>
+    <task id="LOCAL-00001" summary="tets">
+      <created>1582402127416</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1582402127417</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -157,10 +238,43 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/EdPlus" />
+    </ignored-roots>
+    <MESSAGE value="tets" />
+    <option name="LAST_COMMIT_MESSAGE" value="tets" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php-line-method">
+          <url>file://$PROJECT_DIR$/src/UtilisateursBundle/Entity/User.php</url>
+          <line>213</line>
+          <properties>
+            <option name="className" value="\UtilisateursBundle\Entity\User" />
+            <option name="methodName" value="__construct" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php-line-method">
+          <url>file://$PROJECT_DIR$/src/UtilisateursBundle/Controller/DefaultController.php</url>
+          <line>439</line>
+          <properties>
+            <option name="className" value="\UtilisateursBundle\Controller\DefaultController" />
+            <option name="methodName" value="etudiantAction" />
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

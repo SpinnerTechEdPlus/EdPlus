@@ -1,0 +1,18 @@
+{% extends 'base_ecole.html.twig' %}
+{% block content%}
+    {% set flashbag_notices = app.session.flashbag.get('notice')%}
+    {% if  flashbag_notices is not empty %}
+        <ul class ="msg">
+            {% for notice in flashbag_notices %}
+                <li> {{ notice }} </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+        send mail
+    </div>
+    {{ form_start(f) }}
+    {{ form_widget(f) }}
+    {{ form_end(f) }}
+    </div>
+{% endblock %}
