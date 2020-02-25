@@ -132,7 +132,7 @@ class DefaultController extends Controller
 
     }
 
-    public function searchProfesseurAction(Request $request)
+   /* public function searchProfesseurAction(Request $request)
     {   $username=$request->get('username') ;
         $user = $this->get('security.token_storage')->getToken()->getUser();
         $id=$user->getId();
@@ -172,7 +172,7 @@ class DefaultController extends Controller
 
 
 
-    }
+    }*/
 
     public function searchProfesseurByMatiereAction(Request $request)
     {//search by matiere
@@ -212,8 +212,18 @@ class DefaultController extends Controller
 
         $matiere = $this->getDoctrine()->getRepository('GestionNiveauxBundle:matiere')->findAll();
 
+        /**
+         * @var $paginator \Knp\Component\Pager\Paginator
+         */
+        $paginator=$this->get('knp_paginator');
+        $result= $paginator->paginate(
+            $qb->getQuery(),
+            $request->query->getInt('page',1),
+            $request->query->getInt('limit',5)
+        );
 
-        return $this->render('@Utilisateurs/professor.html.twig', ['professors'=>$users,'matiere'=>$matiere]);
+
+        return $this->render('@Utilisateurs/professor.html.twig', ['professors'=>$result,'matiere'=>$matiere]);
 
 
 
@@ -267,7 +277,7 @@ class DefaultController extends Controller
         return $realEntities;
     }
 
-    public function professorAction()
+    public function professorAction(Request $request)
     {
 
 
@@ -287,17 +297,28 @@ class DefaultController extends Controller
             ->setParameter('roles', '%"' . $role . '"%');
 
         $user = $qb->getQuery()->getResult();
+        $query=$em->createQuery($qb);
+        $matiere = $this->getDoctrine()->getRepository('GestionNiveauxBundle:matiere')->findAll();
+
+        /**
+         * @var $paginator \Knp\Component\Pager\Paginator
+         */
+        $paginator=$this->get('knp_paginator');
+       $result= $paginator->paginate(
+            $qb->getQuery(),
+            $request->query->getInt('page',1),
+           $request->query->getInt('limit',5)
 
 
 
-
+        );
 
 
         //$etudiants = $this->getDoctrine()->getRepository('UtilisateursBundle:User')->findBy(array('User'=>$id,'roles'=>$role));
 
-        $matiere = $this->getDoctrine()->getRepository('GestionNiveauxBundle:matiere')->findAll();
 
-        return $this->render('@Utilisateurs/professor.html.twig', ['professors'=>$user,'matiere'=>$matiere]);
+
+        return $this->render('@Utilisateurs/professor.html.twig', ['professors'=>$result,'matiere'=>$matiere]);
 
     }
 
@@ -479,8 +500,14 @@ class DefaultController extends Controller
 
         $classe = $this->getDoctrine()->getRepository('GestionNiveauxBundle:classe')->findAll();
 
+        $paginator=$this->get('knp_paginator');
+        $result= $paginator->paginate(
+            $qb->getQuery(),
+            $request->query->getInt('page',1),
+            $request->query->getInt('limit',5)
+        );
 
-        return $this->render('@Utilisateurs/etudiant.html.twig', ['etudiants'=>$users,'classe'=>$classe]);
+        return $this->render('@Utilisateurs/etudiant.html.twig', ['etudiants'=>$result,'classe'=>$classe]);
 
 
 
@@ -539,7 +566,7 @@ class DefaultController extends Controller
 
 
 
-    public function etudiantAction()
+    public function etudiantAction(Request $request)
     {
 
         $user = $this->get('security.token_storage')->getToken()->getUser();
@@ -567,7 +594,17 @@ class DefaultController extends Controller
         //$etudiants = $this->getDoctrine()->getRepository('UtilisateursBundle:User')->findBy(array('User'=>$id,'roles'=>$role));
         $classe = $this->getDoctrine()->getRepository('GestionNiveauxBundle:classe')->findAll();
 
-        return $this->render('@Utilisateurs/etudiant.html.twig', ['etudiants'=>$user,'classe'=>$classe]);
+        /**
+         * @var $paginator \Knp\Component\Pager\Paginator
+         */
+        $paginator=$this->get('knp_paginator');
+        $result= $paginator->paginate(
+            $qb->getQuery(),
+            $request->query->getInt('page',1),
+            $request->query->getInt('limit',5)
+        );
+
+        return $this->render('@Utilisateurs/etudiant.html.twig', ['etudiants'=>$result,'classe'=>$classe]);
 
     }
 

@@ -15,11 +15,14 @@
       <change afterPath="$PROJECT_DIR$/src/MailBundle/Tests/Controller/mailControllerTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/Ed+.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Ed+.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/AppKernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/AppKernel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/base_ecole.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/base_ecole.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/config/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/routing.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GestionNiveauxBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GestionNiveauxBundle/Controller/DefaultController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GestionNiveauxBundle/Controller/classeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GestionNiveauxBundle/Controller/classeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GestionNiveauxBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/GestionNiveauxBundle/Resources/config/routing.yml" afterDir="false" />
@@ -131,6 +134,8 @@
       <path value="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle" />
       <path value="$PROJECT_DIR$/vendor/friendsofsymfony/message-bundle" />
       <path value="$PROJECT_DIR$/vendor/cmen/google-charts-bundle" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-components" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-paginator-bundle" />
     </include_path>
   </component>
   <component name="ProjectId" id="1XciXJS40LjX4TORthxmiUiNYsG" />
@@ -140,7 +145,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../EspritClub2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SpinnerTech/EdPlus" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -152,18 +157,18 @@
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/src/UtilisateursBundle/Form/UserType.php" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\Ed+\src\UtilisateursBundle\Resources\views\FormViews" />
+      <recent name="C:\wamp64\www\Ed+\src\UtilisateursBundle\Resources\views" />
+      <recent name="C:\wamp64\www\Ed+\app\Resources\FOSUserBundle" />
+      <recent name="C:\wamp64\www\Ed+\app\Resources\FOSUserBundle\Resources" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\Ed+\src" />
       <recent name="C:\wamp64\www\Ed+\src\UtilisateursBundle\Resources\views\FormViews" />
       <recent name="C:\wamp64\www\Ed+\app\Resources\FOSUserBundle" />
       <recent name="C:\wamp64\www\Ed+\app\Resources\FOSUserBundle\views" />
       <recent name="D:\6 - Work\00 - Esprit\3A\PI\ED+\www\Ed+\web\Back_assets" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\Ed+\src\UtilisateursBundle\Resources\views\FormViews" />
-      <recent name="C:\wamp64\www\Ed+\src\UtilisateursBundle\Resources\views" />
-      <recent name="C:\wamp64\www\Ed+\app\Resources\FOSUserBundle" />
-      <recent name="C:\wamp64\www\Ed+\app\Resources\FOSUserBundle\Resources" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -224,6 +229,9 @@
       <workItem from="1582470668778" duration="7829000" />
       <workItem from="1582574056532" duration="5461000" />
       <workItem from="1582581544516" duration="9728000" />
+      <workItem from="1582660715342" duration="3401000" />
+      <workItem from="1582664370292" duration="316000" />
+      <workItem from="1582664720383" duration="5053000" />
     </task>
     <task id="LOCAL-00001" summary="tets">
       <created>1582402127416</created>
@@ -279,6 +287,11 @@
           <url>file://$PROJECT_DIR$/src/UtilisateursBundle/Resources/views/etudiant.html.twig</url>
           <line>50</line>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/ParameterBag/ParameterBag.php</url>
+          <line>101</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
