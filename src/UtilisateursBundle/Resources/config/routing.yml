@@ -66,6 +66,12 @@ professeur_search:
   path:     ecole/searchProfesseur
   defaults: { _controller: UtilisateursBundle:Default:searchProfesseur }
 
+
+professeur_search_ajax:
+  path:     ecole/searchProfesseurAjax
+  defaults: { _controller: UtilisateursBundle:Default:searchProfesseurAjax}
+
+
 professeur_search_matiere:
   path:     ecole/searchProfesseurByMatiere
   defaults: { _controller: UtilisateursBundle:Default:searchProfesseurByMatiere }
@@ -92,6 +98,12 @@ etudiant_search:
 etudiant_search_classe:
   path:     ecole/searchEtudiantByClasse
   defaults: { _controller: UtilisateursBundle:Default:searchEtudiantByClasse }
+
+
+etudiant_search_ajax:
+  path:     ecole/searchEtudiantAjax
+  defaults: { _controller: UtilisateursBundle:Default:searchEtudiantAjax}
+
 
 
 classe_homepage:

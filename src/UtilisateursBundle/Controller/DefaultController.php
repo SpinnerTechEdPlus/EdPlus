@@ -5,11 +5,13 @@ namespace UtilisateursBundle\Controller;
 
 use CMEN\GoogleChartsBundle\GoogleCharts\Charts\PieChart;
 use http\Client\Curl\User;
-use http\Env\Response;
 use MailBundle\Entity\mail;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+
+
 use UtilisateursBundle\Entity\niveau;
 use UtilisateursBundle\Entity\classe;
 use GestionNiveauxBundle\Entity\matiere;
@@ -57,7 +59,7 @@ class DefaultController extends Controller
             $professor = $form->getData();
             $professor->setSearchName($professor->getUsername());
 
-            
+
             $to = $form["email"]->getData();
             $username=$form["username"]->getData();
             $password=$form["plainPassword"]->getData();
@@ -217,6 +219,54 @@ class DefaultController extends Controller
 
     }
 
+    public function searchProfesseurAjaxAction(Request $request)
+    {  $requestString=$request->get('q') ;
+        $user = $this->get('security.token_storage')->getToken()->getUser();
+        $id=$user->getId();
+
+        $em = $this->getDoctrine()->getManager();
+        $role="ROLE_PROFESSEUR";
+        $qb = $em->createQueryBuilder();
+        if($requestString!=null) {
+
+
+            $qb->select('u')
+                ->from('UtilisateursBundle:User', 'u') // Change this to the name of your bundle and the name of your mapped user Entity
+                ->where('u.searchName = :str')
+                ->andWhere('u.roles LIKE :roles')
+                ->andWhere('u.User = :user')
+
+
+                ->setParameter('user', $id)
+                ->setParameter('str', $requestString)
+                ->setParameter('roles', '%"' . $role . '"%');
+        }
+
+
+        $users = $qb->getQuery()->getResult();
+
+        if(!$users)
+        {
+            $result['users']['error']="professor not found";
+        }
+        else{
+            $result['users']=$this->getProfesseurEntities($users);
+        }
+
+        return new Response(json_encode($result));
+
+
+    }
+
+    public function getProfesseurEntities($users)
+    {
+        foreach ($users as $users)
+        {
+            $realEntities[$users->getId()] =[$users->getUsername(),$users->getEmail(),$users->getMatiere()->getNom()];
+        }
+        return $realEntities;
+    }
+
     public function professorAction()
     {
 
@@ -350,7 +400,7 @@ class DefaultController extends Controller
 
     }
 
-    public function searchEtudiantAction(Request $request)
+    /*public function searchEtudiantAction(Request $request)
     {  $username=$request->get('username') ;
         $user = $this->get('security.token_storage')->getToken()->getUser();
         $id=$user->getId();
@@ -389,7 +439,7 @@ class DefaultController extends Controller
         return $this->render('@Utilisateurs/etudiant.html.twig', ['etudiants'=>$users,'classe'=>$classe]);
 
 
-    }
+    }*/
 
     public function searchEtudiantByClasseAction(Request $request)
     {//search by matiere
@@ -435,6 +485,58 @@ class DefaultController extends Controller
 
 
     }
+
+
+
+    public function searchEtudiantAjaxAction(Request $request)
+    {  $requestString=$request->get('q') ;
+        $user = $this->get('security.token_storage')->getToken()->getUser();
+        $id=$user->getId();
+
+        $em = $this->getDoctrine()->getManager();
+        $role="ROLE_ETUDIANT";
+        $qb = $em->createQueryBuilder();
+        if($requestString!=null) {
+
+
+            $qb->select('u')
+                ->from('UtilisateursBundle:User', 'u') // Change this to the name of your bundle and the name of your mapped user Entity
+                ->where('u.searchName = :str')
+                ->andWhere('u.roles LIKE :roles')
+                ->andWhere('u.User = :user')
+
+
+                ->setParameter('user', $id)
+                ->setParameter('str', $requestString)
+                ->setParameter('roles', '%"' . $role . '"%');
+        }
+
+
+        $users = $qb->getQuery()->getResult();
+
+        if(!$users)
+        {
+            $result['users']['error']="student not found";
+        }
+        else{
+            $result['users']=$this->getEtudiantEntities($users);
+        }
+
+       return new Response(json_encode($result));
+
+
+    }
+
+    public function getEtudiantEntities($users)
+    {
+        foreach ($users as $users)
+        {
+            $realEntities[$users->getId()] =[$users->getUsername(),$users->getEmail(),$users->getClasse()->getNom()];
+        }
+        return $realEntities;
+    }
+
+
 
 
     public function etudiantAction()
@@ -517,14 +619,7 @@ class DefaultController extends Controller
 
 
 
-    public function getRealEntities($users)
-    {
-        foreach ($users as $users)
-        {
-            $realEntities[$users->getId()] =[$users->getUsername()];
-        }
-        return $realEntities;
-    }
+
 
 
 

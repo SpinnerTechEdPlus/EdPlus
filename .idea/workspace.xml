@@ -13,6 +13,8 @@
       <change afterPath="$PROJECT_DIR$/src/MailBundle/Resources/views/Default/index.html.twig" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/MailBundle/Resources/views/mail/send_mail.html.twig" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/MailBundle/Tests/Controller/mailControllerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Ed+.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Ed+.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/AppKernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/AppKernel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/base_ecole.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/base_ecole.html.twig" afterDir="false" />
@@ -23,6 +25,7 @@
       <change beforePath="$PROJECT_DIR$/src/GestionNiveauxBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/GestionNiveauxBundle/Resources/config/routing.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UtilisateursBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UtilisateursBundle/Controller/DefaultController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UtilisateursBundle/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UtilisateursBundle/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UtilisateursBundle/Form/etudiantType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UtilisateursBundle/Form/etudiantType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UtilisateursBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/UtilisateursBundle/Resources/config/routing.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UtilisateursBundle/Resources/views/etudiant.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/UtilisateursBundle/Resources/views/etudiant.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UtilisateursBundle/Resources/views/professor.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/UtilisateursBundle/Resources/views/professor.html.twig" afterDir="false" />
@@ -137,7 +140,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../EspritClub2" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -218,7 +221,9 @@
       <workItem from="1582401575535" duration="797000" />
       <workItem from="1582460961200" duration="3552000" />
       <workItem from="1582464613307" duration="4192000" />
-      <workItem from="1582470668778" duration="6803000" />
+      <workItem from="1582470668778" duration="7829000" />
+      <workItem from="1582574056532" duration="5461000" />
+      <workItem from="1582581544516" duration="9728000" />
     </task>
     <task id="LOCAL-00001" summary="tets">
       <created>1582402127416</created>
@@ -265,14 +270,15 @@
           </properties>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="php-line-method">
+        <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/src/UtilisateursBundle/Controller/DefaultController.php</url>
-          <line>439</line>
-          <properties>
-            <option name="className" value="\UtilisateursBundle\Controller\DefaultController" />
-            <option name="methodName" value="etudiantAction" />
-          </properties>
-          <option name="timeStamp" value="4" />
+          <line>28</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/src/UtilisateursBundle/Resources/views/etudiant.html.twig</url>
+          <line>50</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

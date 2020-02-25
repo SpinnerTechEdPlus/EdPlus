@@ -20,13 +20,14 @@ class etudiantType extends AbstractType
     {
         $builder
             ->add('email', EmailType::class, array('label' => 'email', 'translation_domain' => 'FOSUserBundle'))
-            ->add('username', null, array('label' => 'username', 'translation_domain' => 'FOSUserBundle'))
+            ->add('username', null, array('label' => 'username', 'translation_domain' => 'FOSUserBundle','attr' => array('minlength'=>5,'maxlength'=>15)))
             ->add('plainPassword', RepeatedType::class, array(
                 'type' => PasswordType::class,
                 'options' => array(
                     'translation_domain' => 'FOSUserBundle',
                     'attr' => array(
                         'autocomplete' => 'new-password',
+                        'minlength'=>5,
                     ),
                 ),
                 'first_options' => array('label' => 'password'),
