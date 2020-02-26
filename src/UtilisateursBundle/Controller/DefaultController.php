@@ -189,8 +189,10 @@ class DefaultController extends Controller
             $qb->select('u')
                 ->from('UtilisateursBundle:User', 'u') // Change this to the name of your bundle and the name of your mapped user Entity
                 ->where('u.matiere = :str')
+
                 ->andWhere('u.roles LIKE :roles')
                 ->andWhere('u.User = :user')
+                ->orderBy('u.searchName', 'ASC')
                 ->setParameter('user', $id)
                 ->setParameter('str', $matiere)
                 ->setParameter('roles', '%"' . $role . '"%');
@@ -293,8 +295,10 @@ class DefaultController extends Controller
             ->from('UtilisateursBundle:User', 'u') // Change this to the name of your bundle and the name of your mapped user Entity
             ->where('u.User = :user')
             ->andWhere('u.roles LIKE :roles')
+            ->orderBy('u.searchName', 'ASC')
             ->setParameter('user', $id)
-            ->setParameter('roles', '%"' . $role . '"%');
+            ->setParameter('roles', '%"' . $role . '"%')
+             ;
 
         $user = $qb->getQuery()->getResult();
         $query=$em->createQuery($qb);
@@ -479,6 +483,8 @@ class DefaultController extends Controller
                 ->where('u.classe = :str')
                 ->andWhere('u.roles LIKE :roles')
                 ->andWhere('u.User = :user')
+                ->orderBy('u.classe', 'ASC')
+
                 ->setParameter('user', $id)
                 ->setParameter('str', $classe)
                 ->setParameter('roles', '%"' . $role . '"%');
@@ -581,6 +587,7 @@ class DefaultController extends Controller
             ->from('UtilisateursBundle:User', 'u') // Change this to the name of your bundle and the name of your mapped user Entity
             ->where('u.User = :user')
             ->andWhere('u.roles LIKE :roles')
+            ->orderBy('u.classe', 'ASC')
             ->setParameter('user', $id)
             ->setParameter('roles', '%"' . $role . '"%');
 

@@ -148,7 +148,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SpinnerTech/EdPlus" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SmartStartSymfony-master/SmartStartSymfony-master" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -235,7 +235,7 @@
       <workItem from="1582660715342" duration="3401000" />
       <workItem from="1582664370292" duration="316000" />
       <workItem from="1582664720383" duration="5053000" />
-      <workItem from="1582720038834" duration="5799000" />
+      <workItem from="1582720038834" duration="8051000" />
     </task>
     <task id="LOCAL-00001" summary="tets">
       <created>1582402127416</created>
