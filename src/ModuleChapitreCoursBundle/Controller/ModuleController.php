@@ -4,7 +4,7 @@ namespace ModuleChapitreCoursBundle\Controller;
 
 use http\Env\Response;
 use ModuleChapitreCoursBundle\Entity\Chapitre;
-use ModuleChapitreCoursBundle\Entity\Matiere;
+use NotesExamensSeancesBundle\Entity\Matiere;
 use ModuleChapitreCoursBundle\Entity\Module;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -15,7 +15,7 @@ class ModuleController extends Controller
 
         $em = $this->getDoctrine()->getManager();
         $matiere = $em->getRepository(Matiere::class)->find($id);
-        if (count($matiere) != 1) {
+        if (!($matiere)) {
             echo "not found";
         } else {
 

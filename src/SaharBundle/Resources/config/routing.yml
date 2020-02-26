@@ -1,0 +1,49 @@
+saharafficheClubs:
+    path:     /afficheClubs
+    defaults: { _controller: SaharBundle:Clubs:AfficheC }
+saharajoutClubs:
+    path:  /ajoutClubs
+    defaults: { _controller: SaharBundle:Clubs:AjoutC }
+saharmodifierClubs:
+    path:     /modifierClubs/{id}
+    defaults: { _controller: SaharBundle:Clubs:ModifierC }
+saharsupprimerClubs:
+    path:     /supprimerClubs/{id}
+    defaults: { _controller: SaharBundle:Clubs:SupprimerC }
+
+
+sahar_affiche_Rec:
+    path:     /afficheReclamations
+    defaults: { _controller: SaharBundle:Reclamations:AfficheR }
+sahar_ajout_Rec:
+    path:  /ajoutReclamations
+    defaults: { _controller: SaharBundle:Reclamations:AjoutR }
+sahar_modifier_Rec:
+    path:     /modifierReclamations/{id}
+    defaults: { _controller: SaharBundle:Reclamations:ModifierR }
+sahar_supprimer_Rec:
+    path:     /supprimerReclamations/{id}
+    defaults: { _controller: SaharBundle:Reclamations:SupprimerR }
+
+
+sahar_affiche_Exam:
+    path:     /afficheExamcorig
+    defaults: { _controller: SaharBundle:Examcorig:AfficheE }
+sahar_ajout_Exam:
+    path:  /ajoutExamcorig
+    defaults: { _controller: SaharBundle:Examcorig:AjoutE }
+sahar_modifier_Exam:
+    path:     /modifierExamcorig/{id}
+    defaults: { _controller: SaharBundle:Examcorig:ModifierE }
+sahar_supprimer_Exam:
+    path:     /supprimerExamcorig/{id}
+    defaults: { _controller: SaharBundle:Examcorig:SupprimerE }
+sahar__searchE:
+    path:     /searchE
+    defaults: { _controller: SaharBundle:Examcorig:search}
+sahar__searchR:
+    path:     /searchR
+    defaults: { _controller: SaharBundle:Reclamations:search}
+sahar__searchC:
+    path:     /searchC
+    defaults: { _controller: SaharBundle:Clubs:search}

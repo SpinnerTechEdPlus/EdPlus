@@ -17,7 +17,7 @@ class CoursController extends Controller
         $em = $this->getDoctrine()->getManager();
 
 
-  $error = 'noerror';
+        $error = 'noerror';
 
         if ($form->isSubmitted()  ) {
             $target_dir = "uploads/cours/";
@@ -25,22 +25,22 @@ class CoursController extends Controller
             $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
             if ( $imageFileType == 'pdf') {
                 $cours->setUpdatedAt(new \DateTime("now"));
-            $em->persist($cours);
-            $em->flush();
-            $lastId = $em->createQueryBuilder()
-                ->select('MAX(e.id)')
-                ->from('ModuleChapitreCoursBundle:Cours', 'e')
-                ->getQuery()
-                ->getSingleScalarResult();
-            move_uploaded_file($_FILES["pdf"]["tmp_name"], "cours/".$lastId.".pdf");
+                $em->persist($cours);
+                $em->flush();
+                $lastId = $em->createQueryBuilder()
+                    ->select('MAX(e.id)')
+                    ->from('ModuleChapitreCoursBundle:Cours', 'e')
+                    ->getQuery()
+                    ->getSingleScalarResult();
+                move_uploaded_file($_FILES["pdf"]["tmp_name"], "cours/".$lastId.".pdf");
 
-            return $this->redirectToRoute('cours_list');
+                return $this->redirectToRoute('cours_list');
             }
             else $error = 'error';
         }
 
 
-     return $this->render('@ModuleChapitreCours/addcours.html.twig', array('f' => $form->createView() ,'error' =>$error));
+        return $this->render('@ModuleChapitreCours/addcours.html.twig', array('f' => $form->createView() ,'error' =>$error));
 
     }
 

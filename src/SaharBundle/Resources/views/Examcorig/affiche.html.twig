@@ -1,0 +1,65 @@
+{% extends "@Sahar/Default/index.html.twig" %}
+        {% block container %}
+
+
+            <div class="col-lg-12 stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h1 class="card-title text-center">Liste des Examens corrigés</h1>
+                        <!-- recherche-->
+                        <div class="container">
+                            <input class="form-control mb-4" id="tableSearch" type="text"
+                                   placeholder="Rechercher...">
+                            <!--recherche-->
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr>
+                                <th> {{knp_pagination_sortable(Examcorig,'id','e.id')}} </th>
+                                <th> {{knp_pagination_sortable(Examcorig,'Nom de la matière','e.matiere')}} </th>
+                                <th> {{knp_pagination_sortable(Examcorig,'URL PDF','e.urlPdf')}}</th>
+                                <th> Suppression </th>
+                                <!-- <th> Modification </th>-->
+
+                            </tr>
+                            </thead>
+                            <tbody id="myTable">
+                            {% for e in Examcorig %}
+                                <tr class="table-warning">
+                                    <td> {{e.id}}</td>
+                                    <td> {{e.matiere}}</td>
+                                    <td> <a href="{{ asset('uploads/brochures/' ~ e.urlPdf)}}" class="btn btn-success">URL PDF</a> </td>
+                                    <td><a class="btn btn-warning" href="{{ path("sahar_supprimer_Exam",{'id':e.id}) }}">supprimer</a></td>
+                                   <!-- <td><a class="btn btn-warning" href="{{ path("sahar_modifier_Exam",{'id':e.id}) }}">modifier</a></td>-->
+                                </tr>
+                            {% endfor %}
+                            <!--NB-->
+                            <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+                            <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+                            <script src=" https://code.jquery.com/jquery-3.3.1.js"></script>
+                            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+                            <script>
+
+                                $(document).ready(function(){
+                                    $("#tableSearch").on("keyup", function() {
+                                        var value = $(this).val().toLowerCase();
+                                        $("#myTable tr").filter(function() {
+                                            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                                        });
+                                    });
+                                });
+                            </script>
+                            <!--NB-->
+                            </tbody>
+                        </table>
+                        {# display navigation #}
+                        <div class="navigation text-center">
+                            {{ knp_pagination_render(Examcorig) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            </div>
+        {% endblock %}

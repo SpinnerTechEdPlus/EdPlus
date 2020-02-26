@@ -1,0 +1,105 @@
+{% extends 'base_ecole.html.twig' %}
+{% block content %}
+
+    <div class="page-header">
+        <h3 class="page-title">
+                <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                  <i class="mdi mdi-book"> </i>
+                </span> Gestion des notes d'examens</h3>
+        <nav aria-label="breadcrumb">
+            <ul class="breadcrumb">
+
+            </ul>
+        </nav>
+    </div>
+
+
+    <div class="col-lg-12 grid-margin stretch-card" id="examens">
+        <div class="card">
+            <div class="card-body">
+                <p class="card-description">
+                </p>
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>
+                            <center>Classes</center>
+                        </th>
+                        <th>
+                            <center>Gérer les notes</center>
+                        </th>
+
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% set classes = [] %}
+                    {% set matieres = [] %}
+
+                    {% for s in seances %}
+                        {% set matieres = matieres|merge([s.matiere]) %}
+                    {% endfor %}
+
+                    {% for s in seances %}
+                        {% if s.classe.nom not in classes %}
+                            <br>
+                            {% set classes = classes|merge([s.classe.nom]) %}
+
+                    <tr>
+                        <td class="py-1">
+                            <center>
+                                {{ s.classe.nom }}</center>
+                        </td>
+
+                        <td>
+                            <select class="form-control" onchange="  window.open('http://localhost:8000/notes/exam/'+$(this).val());" id="idExam" name="idExam">
+                                <option value="null" selected hidden>Examens</option>
+                                {% for e in examens %}
+                                {% if e.classe == s.classe and e.matiere in matieres %}
+                                <option value="{{ e.id }}">{{ e.matiere.nom }}</option>
+                                {% endif %}
+                                {% endfor %}
+                            </select>
+                        </td>
+
+                    </tr>
+                        {% endif %}
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}
+{% block javascript %}
+<script>
+$("#addSeance").hide();
+$("#editSeance").hide();
+
+function editSeance(id,idprof,idmatiere,idsalle,jour,debut,fin) {
+    $("#idSeance").val(id);
+    $("select").find('option').attr("selected",false) ;
+    $("#Eprof"+idprof).attr("selected",true) ;
+    $("#Ematiere"+idmatiere).attr("selected",true) ;
+    $("#Esalle"+idsalle).attr("selected",true) ;
+
+    $("#Ejour").val(jour);
+    $("#Edebut").val(debut);
+    $("#Efin").val(fin);
+    $('html, body').animate({scrollTop: 0}, 'fast');
+    $("#editSeance").show();
+    $("#Seances").hide();
+}
+
+function supprimer($id) {
+
+    $.ajax({url: "http://localhost:8000/Classe/3/Seances/"+$id+"/delete", success: function(result){
+            alert('test');
+        }});
+
+}
+</script>
+{% endblock %}

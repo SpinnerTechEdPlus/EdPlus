@@ -1,9 +1,15 @@
-gestion_niveaux:
-  resource: "@GestionNiveauxBundle/Resources/config/routing.yml"
-  prefix:   /
-mail:
-  resource: "@MailBundle/Resources/config/routing.yml"
-  prefix:   /mail
+sahar:
+    resource: "@SaharBundle/Resources/config/routing.yml"
+    prefix:   /
+
+module_chapitre_cours:
+    resource: "@ModuleChapitreCoursBundle/Resources/config/routing.yml"
+    prefix:   /
+
+
+notes_examens_seances:
+    resource: "@NotesExamensSeancesBundle/Resources/config/routing.yml"
+    prefix:   /
 
 utilisateurs:
     resource: "@UtilisateursBundle/Resources/config/routing.yml"
@@ -12,9 +18,5 @@ utilisateurs:
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
-
-
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
-
-

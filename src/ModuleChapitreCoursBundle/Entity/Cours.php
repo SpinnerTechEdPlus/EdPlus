@@ -34,7 +34,7 @@ class Cours
 
     /**
      * @var int
-     * @ORM\ManyToOne(targetEntity="Professeur")
+     * @ORM\ManyToOne(targetEntity="\NotesExamensSeancesBundle\Entity\Professeur")
      * @ORM\JoinColumn(name="professeur",referencedColumnName="id")
      */
     private $professeur;
@@ -193,11 +193,11 @@ class Cours
     public function setCoursFile($cours = null)
     {
         $this->file = $cours;
-         if($cours) {
+        if($cours) {
 
-             $this->updatedAt = new DateTime('now');
+            $this->updatedAt = new DateTime('now');
 
-         }
+        }
         return $this;
     }
 

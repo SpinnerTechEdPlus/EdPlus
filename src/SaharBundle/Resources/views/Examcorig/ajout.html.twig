@@ -1,0 +1,19 @@
+{% extends "@Sahar/Default/index.html.twig" %}
+        {% block container %}
+            <!doctype html>
+            <html>
+
+            <div class="card-body">
+                <h1 class="card-title text-center">Ajout d'un Examen corrigé</h1>
+              <center> <div class="well">
+                    {{ form_start(form) }}
+                    {# ... #}
+                    {{ form_row(form.matiere) }}
+                    <center> {{ form_row(form.urlPdf) }}</center>
+                    {{ form_end(form) }}
+                </div></center>
+            </div>
+            </html>
+
+
+        {% endblock %}
