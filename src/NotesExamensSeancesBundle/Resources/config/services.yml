@@ -1,0 +1,4 @@
+services:
+#    notes_examens_seances.example:
+#        class: NotesExamensSeancesBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

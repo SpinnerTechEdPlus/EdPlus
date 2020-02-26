@@ -1,0 +1,16 @@
+notes_examens_seances_homepage:
+    path:     /Classe/{id}/Seances
+    defaults: { _controller: NotesExamensSeancesBundle:Seances:list }
+
+notes_examens_examen_homepage:
+    path:     /Classe/{id}/Examens
+    defaults: { _controller: NotesExamensSeancesBundle:Examens:list }
+
+notes_examens_delete_homepage:
+    path:     /Classe/{id}/Examens/{examid}/delete
+    defaults: { _controller: NotesExamensSeancesBundle:Examens:delete }
+
+notes_examens_seancesdel_homepage:
+    path:     /Classe/{id}/Seances/{seanceid}/delete
+    defaults: { _controller: NotesExamensSeancesBundle:Seances:delete }
+
