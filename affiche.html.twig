@@ -1,0 +1,82 @@
+{% extends "@Sahar/Default/index.html.twig" %}
+        {% block container %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+    <style>
+        #heading { color: #BA55D3; }
+    </style>
+</head>
+
+            <div class="col-lg-12 stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h1  id="heading" class="card-title text-center">Liste des Réclamations</h1>
+                        <!-- recherche-->
+                        <div class="container">
+                            <input class="form-control mb-4" id="tableSearch" type="text"
+                                   placeholder="Rechercher...">
+                            <!--recherche-->
+                        <table class="table table-bordered">
+                            <thead>
+
+                            <tr>
+                                <th> {{knp_pagination_sortable(Reclamations,'id','r.id')}}</th>
+                                <th> {{knp_pagination_sortable(Reclamations,'Titre','r.titre')}}</th>
+                                <th> {{knp_pagination_sortable(Reclamations,'Contenu','r.contenu')}} </th>
+                                <th> {{knp_pagination_sortable(Reclamations,'Date','r.date')}} </th>
+                                <th> Suppression </th>
+                                <th> Modification </th>
+
+                            </tr>
+                            </thead>
+                            <tbody id="myTable">
+                            {% for r in Reclamations %}
+                                <tr class="table-info">
+                                    <td> {{r.id}}</td>
+                                    <td> {{r.titre}} </td>
+                                    <td> {{r.contenu}}  </td>
+                                    <td> {{ r.date | date('d-m-Y') }} </td>
+                                    <td><a class="btn btn-info" href="{{ path("sahar_supprimer_Rec",{'id':r.id}) }}">supprimer</a></td>
+                                    <td><a class="btn btn-info" href="{{ path("sahar_modifier_Rec",{'id':r.id}) }}">modifier</a></td>
+                                </tr>
+                            {% endfor %}
+                            <!--NB-->
+                            <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+                            <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+                            <script src=" https://code.jquery.com/jquery-3.3.1.js"></script>
+                            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+                            <script>
+
+                                $(document).ready(function(){
+                                    $("#tableSearch").on("keyup", function() {
+                                        var value = $(this).val().toLowerCase();
+                                        $("#myTable tr").filter(function() {
+                                            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                                        });
+                                    });
+                                });
+                            </script>
+                            <!--NB-->
+                            </tbody>
+                        </table>
+                        {# display navigation #}
+                        <div class="navigation text-center">
+                            {{ knp_pagination_render(Reclamations) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            </div>
+            {# display navigation #}
+            <div class="navigation text-center">
+                {{ knp_pagination_render(Reclamations) }}
+            </div>
+        </html>
+        {% endblock %}

@@ -3,7 +3,6 @@
 namespace SaharBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Clubs
  *

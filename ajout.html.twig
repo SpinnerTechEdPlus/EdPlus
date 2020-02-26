@@ -1,0 +1,26 @@
+{% extends "@Sahar/Default/index.html.twig" %}
+        {% block container %}
+            <!doctype html>
+            <html>
+
+            <head>
+                <style>
+                    #heading { color: #BA55D3; }
+                </style>
+            </head>
+            <div class="card-body">
+                <h1 id="heading" class="card-title text-center">Ajout d'une réclamation</h1>
+               <center> <div class="col-md-4 col-md-offset-4>
+                       {{ form_start(form) }}
+                       {# ... #}
+                       {{ form_row(form.titre) }}
+                       <center> {{ form_row(form.contenu) }}</center>
+                       <center> {{ form_row(form.date) }}</center>
+                       {{ form_widget(form.ajouter, {'attr': {'class': 'btn btn-secondary'}}) }}
+                       {{ form_end(form) }}
+
+                   </div></center>
+            </div>
+            </html>
+
+        {% endblock %}

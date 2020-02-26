@@ -5,14 +5,36 @@ use Symfony\Component\HttpFoundation\Request;
 use SaharBundle\Entity\Clubs;
 use SaharBundle\Form\ClubsType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
 
 class ClubsController extends Controller
 {
-    public function AfficheCAction()
+
+    public function AfficheCAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $Clubs = $em->getRepository("SaharBundle:Clubs")->findAll();
-        return $this->render("@Sahar/Clubs/affiche.html.twig", array('Clubs' => $Clubs));
+       // $queryBuilder = $this->getClubsRepository()->createFindAllQuery();
+        //$queryBuilder = $em->getRepository('SaharBundle:Clubs')->createQueryBuilder('c');
+
+       // if ($request->query->getAlnum('filter')) {
+            //$queryBuilder
+                //->where('c.nom LIKE :nom')
+               // ->setParameter('nom', '%' . $request->query->getAlnum('filter') . '%');
+       // }
+        // $query= $queryBuilder->getQuery();
+        //$Clubs = $em->getRepository("SaharBundle:Clubs")->findAll();
+        $dql= "SELECT c FROM SaharBundle:Clubs c";
+        $query=$em->createQuery($dql);
+        /**
+         * @var $paginator \Knp\Component\Pager\Paginator
+         */
+        $paginator = $this->get('knp_paginator');
+        $result = $paginator->paginate(
+            $query,
+            $request->query->getInt('page', 1),
+            $request->query->getInt('limit',5)
+        );
+        return $this->render("@Sahar/Clubs/affiche.html.twig", array('Clubs' => $result));
     }
 
     public function ajoutCAction(Request $request)
@@ -23,7 +45,7 @@ class ClubsController extends Controller
 
         $form->handleRequest($request);
         //$Clubs->setSujet(sujet: null);
-        if ($form->isSubmitted()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($Clubs);
             $em->flush();
@@ -50,7 +72,7 @@ class ClubsController extends Controller
         $form = $this->createForm(ClubsType::class, $Clubs);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted()) {
+        if ($form->isSubmitted()&& $form->isValid()) {
             $em->persist($Clubs);
             $em->flush();
             return $this->redirectToRoute('saharafficheClubs');
@@ -61,24 +83,25 @@ class ClubsController extends Controller
     public function searchAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $requestString = $request->get('q');
-        $Clubs =  $em->getRepository('SaharBundle:Clubs')->findEntitiesByString($requestString);
-        if(!$Clubs) {
-            $result['Clubs']['error'] = "Post Not found :( ";
-        } else {
-            $result['Clubs'] = $this->getRealEntities($Clubs);
-
+        //$Clubs = $em->getRepository('SaharBundle:Clubs')->findAll();
+        $dql = "SELECT c FROM SaharBundle:Clubs c";
+        $query =$em->createQuery($dql);
+        /**
+         * @var $paginator \Knp\Component\Pager\Paginator
+         */
+        $paginator = $this->get('knp_paginator');
+        $result = $paginator->paginate(
+            $query,
+            $request->query->getInt('page', 1),
+            $request->query->getInt('limit',5)
+        );
+        if ($request->isMethod('POST')) {
+            $nom = $request->get('nom');
+            $result= $em->getRepository("SaharBundle:Clubs")->findBy(array("nom" => $nom));
         }
-        return new Response(json_encode($result));
+        return $this->render("@Sahar/Clubs/affiche.html.twig", array('Clubs' => $result));
     }
 
-    public function getRealEntities($Clubs)
-    {
-        foreach ($Clubs as $Clubs){
-            $realEntities[$Clubs->getId()] = [$Clubs->getnom(),$Clubs->getorganization(),$Clubs->getanneeCreation()];
 
-        }
-        return $realEntities;
 
-    }
 }
