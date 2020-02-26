@@ -1,0 +1,343 @@
+{% extends 'base_ecole.html.twig' %}
+{% block content %}
+    <div class="page-header">
+    <h3 class="page-title">
+                <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                  <i class="mdi mdi-book"> </i>
+                </span> Séances</h3>
+    <nav aria-label="breadcrumb">
+        <ul class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">
+                <button type="button" class="btn btn-gradient-primary btn-rounded btn-icon" onclick="$('#addSeance').show(); $('#Seances').hide(); $('#editSeance').hide();">
+                    <i class="mdi mdi-plus" ></i>
+                </button>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+    <div class="col-12 grid-margin stretch-card" id="addSeance" style="display: none;" >
+        <div class="card">
+            <div class="card-body">
+                <a style="float : right;" href="javascript:void(0)"
+                   onclick="$('#addSeance').hide(); $('#Seances').show();"><i class="mdi mdi-close"
+                                                                              style="color : #cc2127 ; width:  150%; margin-top : -10%; "></i></a>
+                <h4 class="">Ajouter une séance</h4>
+                <form method="post" class="form-sample">
+                    <p class="card-description"> Classe : <code>{{ classe.nom }}</code> </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Professeur</label>
+                                <div class="col-sm-9">
+                                    <select class="form-control" id="idProf" name="idProf">
+                                        <option value="null" selected hidden>Professeur</option>
+                                        {% for prof in professeurs %}
+                                        <option id="prof{{ prof.id }}" value="{{ prof.id }}">{{ prof.nom }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Matière</label>
+                                <div class="col-sm-9">
+                                    <select class="form-control" id="idMatiere" name="idMatiere">
+                                        <option value="null" selected hidden>Matière</option>
+                                        {% for matiere in matieres %}
+                                        <option id="matiere{{ matiere.id }}" value="{{ matiere.id }}">{{ matiere.nom }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Salle</label>
+                                <div class="col-sm-9">
+                                    <select class="form-control" id="idSalle" name="idSalle">
+                                        <option value="null" selected hidden>Salle</option>
+                                       {% for salle in salles %}
+                                        <option id="salle{{ salle.id }}" value="{{ salle.id }}">{{ salle.nom }}</option>
+                                       {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Jour</label>
+                                <div class="col-sm-9">
+
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                                        <span class="input-group-text  mb-2  "><i
+                                                                    class="mdi mdi-calendar"></i> </span>
+                                        </div>
+                                        <input name="jour" id="jour" type="date" class="form-control" placeholder="dd/mm/yyyy">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Début</label>
+                                <div class="col-sm-9">
+
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                                        <span class="input-group-text  mb-2  "><i
+                                                                    class="mdi mdi-timer"></i> </span>
+                                        </div>
+                                        <input type="time" name="debut" id="debut" class="form-control" placeholder="dd/mm/yyyy">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Fin</label>
+                                <div class="col-sm-9">
+
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                                        <span class="input-group-text  mb-2  "><i
+                                                                    class="mdi mdi-timer-off"></i> </span>
+                                        </div>
+                                        <input type="time" id="fin" name="fin" class="form-control" placeholder="dd/mm/yyyy">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="float :right ;">
+                        <input type="submit" class="btn btn-gradient-primary mr-2" id="ajouter" name="ajouter" value="Ajouter">
+
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-12 grid-margin stretch-card" id="editSeance" style="display: none;" >
+        <div class="card">
+            <div class="card-body">
+                <a style="float : right;" href="javascript:void(0)"
+                   onclick="$('#editSeance').hide(); $('#Seances').show();"><i class="mdi mdi-close"
+                                                                               style="color : #cc2127 ; width:  150%; margin-top : -10%; "></i></a>
+                <h4 class="">Modifier une séance</h4>
+                <form method="post" class="form-sample">
+                    <p class="card-description"> Classe : <code>{{ classe.nom }}</code> </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Professeur</label>
+                                <div class="col-sm-9">
+                                    <select class="form-control" id="EidProf" name="EidProf">
+                                        <option value="null" selected hidden>Professeur</option>
+                                        {% for prof in professeurs %}
+                                        <option id="Eprof{{ prof.id }}" value="{{ prof.id }}">{{ prof.nom }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Matière</label>
+                                <div class="col-sm-9">
+                                    <select class="form-control" id="EidMatiere" name="EidMatiere">
+                                        <option value="null" selected hidden>Matière</option>
+                                        {% for matiere in matieres %}
+                                         <option id="Ematiere{{ matiere.id }}" value="{{ matiere.id }}">{{ matiere.nom }}</option>
+                                        {%  endfor %}
+
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Salle</label>
+                                <div class="col-sm-9">
+                                    <select class="form-control" id="EidSalle" name="EidSalle">
+                                        <option value="null" selected hidden>Salle</option>
+                                        {% for salle in salles %}
+                                        <option id="Esalle{{ salle.id }}" value="{{ salle.id }}">{{ salle.nom }}</option>{% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Jour</label>
+                                <div class="col-sm-9">
+
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                                        <span class="input-group-text  mb-2  "><i
+                                                                    class="mdi mdi-calendar"></i> </span>
+                                        </div>
+                                        <input name="Ejour" id="Ejour" type="date" class="form-control" placeholder="dd/mm/yyyy">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Début</label>
+                                <div class="col-sm-9">
+
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                                        <span class="input-group-text  mb-2  "><i
+                                                                    class="mdi mdi-timer"></i> </span>
+                                        </div>
+                                        <input type="time" name="Edebut" id="Edebut" class="form-control" placeholder="dd/mm/yyyy">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Fin</label>
+                                <div class="col-sm-9">
+
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                                        <span class="input-group-text  mb-2  "><i
+                                                                    class="mdi mdi-timer-off"></i> </span>
+                                        </div>
+                                        <input type="time" id="Efin" name="Efin" class="form-control" placeholder="dd/mm/yyyy">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="float :right ;">
+                        <input type="submit" class="btn btn-gradient-primary mr-2" id="modifier" name="modifier" value="Modifier">
+
+                    </div>
+
+                    <input hidden name="idSeance" type="text" id="idSeance" >
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="col-lg-12 grid-margin stretch-card" id="Seances">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Classe : <code>{{ classe.nom }}</code></h4>
+                <p class="card-description">
+                </p>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>
+                            <center>Photo</center>
+                        </th>
+                        <th>
+                            <center>Professeur</center>
+                        </th>
+                        <th>
+                            <center>Matiere</center>
+                        </th>
+                        <th>
+                            <center>Salle</center>
+                        </th>
+                        <th>
+                            <center>Jour</center>
+                        </th>
+                        <th>
+                            <center>Horaire</center>
+                        </th>
+                        <th>
+                            <center><i class="mdi mdi-calendar-edit"></i></center>
+                        </th>
+                        <th>
+                            <center><i class="mdi mdi-delete"></i></center>
+                        </th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for seance in seances  %}
+                    <tr>
+                        <td class="py-1">
+                            <center><img src="{{ asset('Back_assets/assets/images/faces-clipart/pic-1.png') }}" alt="image"></center>
+                        </td>
+                        <td>
+                            <center>{{  seance.professeur.nom }}</center>
+                        </td>
+                        <td>
+                            <center>{{ seance.matiere.nom }}</center>
+                        </td>
+                        <td>
+                            <center>{{ seance.salle.nom }}</center>
+                        </td>
+                        <td>
+                            <center>{{ seance.jour|date('Y-m-d')}}</center>
+                        </td>
+                        <td>
+                            <center>{{ seance.debut|date('H:m') }} - {{ seance.fin|date('H:m') }}</center>
+                        </td>
+                        <td>
+                            <center>&nbsp;<a onclick="editSeance({{ seance.id }},{{ seance.professeur.id }},{{ seance.matiere.id }},{{ seance.salle.id }},'{{ seance.jour |date('Y-m-d')}}','{{ seance.debut |date('H:m')}}','{{ seance.fin |date('H:m')}}')" href="javascript:void(0)"><i class="mdi mdi-calendar-edit"></i></a>
+                            </center>
+                        </td>
+                        <td>
+                            <center>&nbsp;<a onclick="supprimer('{{seance.id}}'); $(this).parent().parent().parent().remove();" href="javascript:void(0)" ><i class="mdi mdi-delete" ></i></a>
+                            </center>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascript %}
+<script>
+$("#addSeance").hide();
+$("#editSeance").hide();
+
+function editSeance(id,idprof,idmatiere,idsalle,jour,debut,fin) {
+    $("#idSeance").val(id);
+    $("select").find('option').attr("selected",false) ;
+    $("#Eprof"+idprof).attr("selected",true) ;
+    $("#Ematiere"+idmatiere).attr("selected",true) ;
+    $("#Esalle"+idsalle).attr("selected",true) ;
+
+    $("#Ejour").val(jour);
+    $("#Edebut").val(debut);
+    $("#Efin").val(fin);
+    $('html, body').animate({scrollTop: 0}, 'fast');
+    $("#editSeance").show();
+    $("#Seances").hide();
+}
+
+function supprimer($id) {
+
+    $.ajax({url: "http://localhost:8000/Classe/3/Seances/"+$id+"/delete", success: function(result){
+            alert('test');
+        }});
+
+}
+</script>
+{% endblock %}

@@ -1,0 +1,194 @@
+{% extends 'base_ecole.html.twig' %}
+{% block content %}
+    <div class="page-header">
+        <h3 class="page-title">
+                <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                  <i class="mdi mdi-book"> </i>
+                </span> Examens {{ classe.nom }}</h3>
+        <nav aria-label="breadcrumb">
+            <ul class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page">
+                    <button type="button" class="btn btn-gradient-primary btn-rounded btn-icon" onclick="$('#addSeance').show(); $('#editSeance').hide();">
+                        <i class="mdi mdi-plus" ></i>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="col-12 grid-margin stretch-card" id="addSeance" style="display: none;" >
+        <div class="card">
+            <div class="card-body">
+                <a style="float : right;" href="javascript:void(0)"
+                   onclick="$('#addSeance').hide(); $('#Seances').show();"><i class="mdi mdi-close"
+                                                                              style="color : #cc2127 ; width:  150%; margin-top : -10%; "></i></a>
+                <h4 class="">Ajouter un examen</h4>
+                <p>&nbsp;</p>
+                <form class="form-inline" method="post">
+                    <select class="form-control mb-2 mr-sm-2" id="idMatiere" name="idMatiere" style="width: 22%;">
+                        <option value="null" selected hidden>Matière</option>
+                        {% for matiere in matieres %}
+                            <option id="matiere{{ matiere.id }}" value="{{ matiere.id }}">{{ matiere.nom }}</option>
+                        {% endfor  %}
+                    </select>
+                    <select class="form-control mb-2 mr-sm-2" id="idSalle" name="idSalle">
+                        <option value="null" selected hidden>Salle</option>
+                        {% for salle in salles %}
+                            <option id="salle{{ salle.id }}" value="{{ salle.id }}">{{ salle.nom }}</option>
+                        {% endfor %}
+                    </select>
+                    <select class="form-control mb-2 mr-sm-2" id="semestre" name="semestre">
+                        <option value="null" selected hidden>Semestre</option>
+                        <option id="semestre1" value="1">Semestre 1</option>
+                        <option id="semestre2" value="2">Semestre 2</option>
+                    </select>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                                                        <span class="input-group-text  mb-2  "><i
+                                                                    class="mdi mdi-calendar"></i> </span>
+                        </div>
+                        <input name="horaire" id="horaire" type="datetime-local" class="form-control mb-2 mr-sm-2" placeholder="dd/mm/yyyy">
+                    </div>
+
+
+                    <input type="submit" name="ajouter" id="ajouter" class="btn btn-gradient-primary mb-2" value="Ajouter">
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 grid-margin stretch-card" id="editSeance" style="display: none;"  >
+        <div class="card">
+            <div class="card-body">
+                <a style="float : right;" href="javascript:void(0)"
+                   onclick="$('#editSeance').hide(); $('#Seances').show();"><i class="mdi mdi-close"
+                                                                               style="color : #cc2127 ; width:  150%; margin-top : -10%; "></i></a>
+                <h4 class="">Modifier un examen</h4>
+                <p>&nbsp;</p>
+                <form class="form-inline" method="post">
+                    <select class="form-control mb-2 mr-sm-2" id="EidMatiere" name="EidMatiere" style="width: 22%;">
+                        <option value="null" selected hidden>Matière</option>
+                        {% for matiere in matieres %}
+                            <option id="Ematiere{{ matiere.id }}" value="{{ matiere.id }}">{{ matiere.nom }}</option>
+                        {% endfor  %}
+                    </select>
+                    <select class="form-control mb-2 mr-sm-2" id="EidSalle" name="EidSalle">
+                        <option value="null" selected hidden>Salle</option>
+                        {% for salle in salles %}
+                            <option id="Esalle{{ salle.id }}" value="{{ salle.id }}">{{ salle.nom }}</option>
+                        {% endfor %}
+                    </select>
+                    <select class="form-control mb-2 mr-sm-2" id="Esemestre" name="Esemestre">
+                        <option value="null" selected hidden>Semestre</option>
+                        <option id="Esemestre1" value="1">Semestre 1</option>
+                        <option id="Esemestre2" value="2">Semestre 2</option>
+                    </select>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                                                        <span class="input-group-text  mb-2  "><i
+                                                                    class="mdi mdi-calendar"></i> </span>
+                        </div>
+                        <input name="Ehoraire" id="Ehoraire" type="datetime-local" class="form-control mb-2 mr-sm-2" placeholder="dd/mm/yyyy">
+                    </div>
+
+
+                    <input type="submit" id="modifier" name="modifier" class="btn btn-gradient-primary mb-2" value="Modifier">
+                    <input hidden type="text" id="idExam" name="idExam"  >
+
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-12 grid-margin stretch-card" id="Seances">
+        <div class="card">
+            <div class="card-body">
+                <p class="card-description">
+                </p>
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>
+                            <center>Matière</center>
+                        </th>
+                        <th>
+                            <center>Salle</center>
+                        </th>
+                        <th>
+                            <center>Semestre</center>
+                        </th>
+                        <th>
+                            <center>Horaire</center>
+                        </th>
+                        <th>
+                            <center><i class="mdi mdi-database-edit"></i></center>
+                        </th>
+                        <th>
+                            <center><i class="mdi mdi-delete"></i></center>
+                        </th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for exam in examens %}
+                    <tr>
+                        <td class="py-1">
+                            <center>{{ exam.matiere.nom }}</center>
+                        </td>
+                        <td>
+                            <center>{{ exam.salle.nom }}</center>
+                        </td>
+                        <td>
+                            <center>{{ exam.semestre }}</center>
+                        </td>
+                        <td>
+                            <center>{{ exam.horaire|date('Y-m-d')  }} {{ exam.horaire|date('H:m') }}</center>
+                        </td>
+                        <td>
+                            <center>&nbsp;<a onclick="editExam({{ exam.id }},{{ exam.matiere.id }},{{ exam.salle.id }},{{ exam.semestre }},'{{ exam.horaire|date('Y-m-d')  }}T{{ exam.horaire|date('H:m') }}')" href="javascript:void(0)"><i class="mdi mdi-calendar-edit"></i></a>
+                            </center>
+                        </td>
+                        <td>
+                            <center>&nbsp;<a onclick="supprimer('{{ exam.id }}'); $(this).parent().parent().parent().remove();" href="javascript:void(0)" ><i class="mdi mdi-delete" ></i></a>
+                            </center>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascript %}
+<script>
+$("#addSeance").hide();
+$("#editSeance").hide();
+
+function editExam(id,idmatiere,idsalle,semestre,horaire) {
+    $("#idExam").val(id);
+    $("select").find('option').attr("selected",false) ;
+    $("#Ematiere"+idmatiere).attr("selected",true) ;
+    $("#Esalle"+idsalle).attr("selected",true) ;
+    $("#Esemestre"+semestre).attr("selected",true) ;
+    $("#Ehoraire").val(horaire);
+    $('html, body').animate({scrollTop: 0}, 'fast');
+    $("#addSeance").hide();
+    $("#editSeance").show();
+}
+function supprimer($id) {
+
+    $.ajax({url: "http://localhost:8000/Classe/3/Examens/"+$id+"/delete", success: function(result){
+    alert('test');
+        }});
+
+}
+</script>
+
+
+
+{% endblock %}

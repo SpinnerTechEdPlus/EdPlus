@@ -1,22 +1,17 @@
 <?php
 
-namespace ModuleChapitreCoursBundle\Entity;
+namespace NotesExamensSeancesBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Chapitre
+ * Salle
  *
- * @ORM\Table(name="chapitre")
- * @ORM\Entity(repositoryClass="ModuleChapitreCoursBundle\Repository\ChapitreRepository")
+ * @ORM\Table(name="salle")
+ * @ORM\Entity(repositoryClass="NotesExamensSeancesBundle\Repository\SalleRepository")
  */
-class Chapitre
+class Salle
 {
-    public function __toString()
-    {
-        return (string) $this->module->getNom().' : '.$this->nom;
-    }
-
     /**
      * @var int
      *
@@ -32,28 +27,7 @@ class Chapitre
      * @ORM\Column(name="nom", type="string", length=255)
      */
     private $nom;
-    /**
-     * @var int
-     * @ORM\ManyToOne(targetEntity="Module")
-     * @ORM\JoinColumn(name="module",referencedColumnName="id")
-     */
-    private $module;
 
-    /**
-     * @return int
-     */
-    public function getModule()
-    {
-        return $this->module;
-    }
-
-    /**
-     * @param int $module
-     */
-    public function setModule($module)
-    {
-        $this->module = $module;
-    }
 
     /**
      * Get id
@@ -65,12 +39,14 @@ class Chapitre
         return $this->id;
     }
 
+
+
     /**
      * Set nom
      *
      * @param string $nom
      *
-     * @return Chapitre
+     * @return Salle
      */
     public function setNom($nom)
     {

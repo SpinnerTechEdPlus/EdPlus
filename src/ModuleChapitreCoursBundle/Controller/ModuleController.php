@@ -3,6 +3,7 @@
 namespace ModuleChapitreCoursBundle\Controller;
 
 use http\Env\Response;
+use ModuleChapitreCoursBundle\Entity\Chapitre;
 use ModuleChapitreCoursBundle\Entity\Matiere;
 use ModuleChapitreCoursBundle\Entity\Module;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -56,6 +57,19 @@ class ModuleController extends Controller
         $em->remove($module);
         $em->flush();
         return $this->redirectToRoute('module_chapitre_cours_homepage',array('id'=>$lastid));
+    }
+
+    public function statAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $modules = $em->getRepository(Module::class)->findBy(array('matiere' => $id));
+        $nbr = [] ;
+        $matiere = null ;
+        foreach ( $modules as $module) {
+            array_push($nbr,count($em->getRepository(Chapitre::class)->findBy(array('module' => $module->getId()))));
+            $matiere = $module->getMatiere();
+        }
+        return $this->render('@ModuleChapitreCours/modulestat.html.twig', array('modules' => $modules , 'nbr' => $nbr ,'matiere' => $matiere));
     }
 }
 
