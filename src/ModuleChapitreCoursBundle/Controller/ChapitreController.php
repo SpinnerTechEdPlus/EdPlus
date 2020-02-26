@@ -12,7 +12,7 @@ class ChapitreController extends Controller
 
         $em = $this->getDoctrine()->getManager();
         $module = $em->getRepository(Module::class)->find($id);
-        if (count($module) != 1) {
+        if (!($module)) {
             echo "not found";
         } else {
 

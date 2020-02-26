@@ -2,7 +2,37 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5ff53382-9682-4bb6-9070-8a6f7e0b0f4e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/MailBundle/Controller/DefaultController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MailBundle/Controller/mailController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MailBundle/Entity/mail.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MailBundle/Form/mailType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MailBundle/MailBundle.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MailBundle/Repository/mailRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MailBundle/Resources/config/routing.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MailBundle/Resources/config/services.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MailBundle/Resources/views/Default/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MailBundle/Resources/views/mail/send_mail.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MailBundle/Tests/Controller/mailControllerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Ed+.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Ed+.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/AppKernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/AppKernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/base_ecole.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/base_ecole.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/routing.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/services.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/services.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GestionNiveauxBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GestionNiveauxBundle/Controller/DefaultController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GestionNiveauxBundle/Controller/classeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GestionNiveauxBundle/Controller/classeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GestionNiveauxBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/GestionNiveauxBundle/Resources/config/routing.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UtilisateursBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UtilisateursBundle/Controller/DefaultController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UtilisateursBundle/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UtilisateursBundle/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UtilisateursBundle/Form/etudiantType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UtilisateursBundle/Form/etudiantType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UtilisateursBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/UtilisateursBundle/Resources/config/routing.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UtilisateursBundle/Resources/views/etudiant.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/UtilisateursBundle/Resources/views/etudiant.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UtilisateursBundle/Resources/views/professor.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/UtilisateursBundle/Resources/views/professor.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -107,6 +137,8 @@
       <path value="$PROJECT_DIR$/vendor/cmen/google-charts-bundle" />
       <path value="$PROJECT_DIR$/vendor/knplabs/knp-components" />
       <path value="$PROJECT_DIR$/vendor/knplabs/knp-paginator-bundle" />
+      <path value="$PROJECT_DIR$/vendor/jms/metadata" />
+      <path value="$PROJECT_DIR$/vendor/vich/uploader-bundle" />
     </include_path>
   </component>
   <component name="ProjectId" id="1XciXJS40LjX4TORthxmiUiNYsG" />
@@ -116,7 +148,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SpinnerTech/EdPlus" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -128,18 +160,18 @@
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/src/UtilisateursBundle/Form/UserType.php" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\Ed+\src\UtilisateursBundle\Resources\views\FormViews" />
-      <recent name="C:\wamp64\www\Ed+\src\UtilisateursBundle\Resources\views" />
-      <recent name="C:\wamp64\www\Ed+\app\Resources\FOSUserBundle" />
-      <recent name="C:\wamp64\www\Ed+\app\Resources\FOSUserBundle\Resources" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\Ed+\src" />
       <recent name="C:\wamp64\www\Ed+\src\UtilisateursBundle\Resources\views\FormViews" />
       <recent name="C:\wamp64\www\Ed+\app\Resources\FOSUserBundle" />
       <recent name="C:\wamp64\www\Ed+\app\Resources\FOSUserBundle\views" />
       <recent name="D:\6 - Work\00 - Esprit\3A\PI\ED+\www\Ed+\web\Back_assets" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\Ed+\src\UtilisateursBundle\Resources\views\FormViews" />
+      <recent name="C:\wamp64\www\Ed+\src\UtilisateursBundle\Resources\views" />
+      <recent name="C:\wamp64\www\Ed+\app\Resources\FOSUserBundle" />
+      <recent name="C:\wamp64\www\Ed+\app\Resources\FOSUserBundle\Resources" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -203,7 +235,7 @@
       <workItem from="1582660715342" duration="3401000" />
       <workItem from="1582664370292" duration="316000" />
       <workItem from="1582664720383" duration="5053000" />
-      <workItem from="1582720280607" duration="243000" />
+      <workItem from="1582720038834" duration="5799000" />
     </task>
     <task id="LOCAL-00001" summary="tets">
       <created>1582402127416</created>
@@ -264,6 +296,11 @@
           <url>file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/ParameterBag/ParameterBag.php</url>
           <line>101</line>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/vendor/knplabs/knp-paginator-bundle/Resources/views/Pagination/twitter_bootstrap_v3_pagination.html.twig</url>
+          <line>49</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

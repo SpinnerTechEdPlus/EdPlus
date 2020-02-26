@@ -14,3 +14,21 @@ notes_examens_seancesdel_homepage:
     path:     /Classe/{id}/Seances/{seanceid}/delete
     defaults: { _controller: NotesExamensSeancesBundle:Seances:delete }
 
+notes_examens_seances_class_list:
+  path:     /notes
+  defaults: { _controller: NotesExamensSeancesBundle:Notes:ClassesList }
+
+notes_examens_seances_class_notes:
+  path:     /notes/exam/{id}
+  defaults: { _controller: NotesExamensSeancesBundle:Notes:NotesList }
+notes_examens_seances_class_notesadd:
+  path:     /addnote/{examen}/{etudiant}/{note}
+  defaults: { _controller: NotesExamensSeancesBundle:Notes:addNote }
+notes_examens_seances_class_notesedit:
+  path:     /editnote/{noteid}/{note}
+  defaults: { _controller: NotesExamensSeancesBundle:Notes:editNote }
+notes_examens_seances_class_notesdel:
+  path:     /deletenote/{noteid}
+  defaults: { _controller: NotesExamensSeancesBundle:Notes:deleteNote }
+
+

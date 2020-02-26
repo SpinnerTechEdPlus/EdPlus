@@ -1,0 +1,22 @@
+{% extends "base_ecole.html.twig" %}
+
+        {% block content %}
+<!doctype html>
+<html>
+
+<div class="card-body">
+<h1 class="card-title text-center">Ajout d'un club</h1>
+<center><div class="well">
+                {{ form_start(form) }}
+                {# ... #}
+                {{ form_row(form.nom) }}
+                <center> {{ form_row(form.organization) }}</center>
+              <center> {{ form_row(form.anneeCreation) }}</center>
+
+        {{ form_end(form) }}
+</div></center>
+</div>
+        </html>
+
+        {% endblock %}
+

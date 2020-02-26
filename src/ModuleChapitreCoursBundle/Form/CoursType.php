@@ -20,8 +20,8 @@ class CoursType extends AbstractType
         $builder->add('description')->add('coursName')
             ->add('professeur')->add('chapitre');
     }/**
-     * {@inheritdoc}
-     */
+ * {@inheritdoc}
+ */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(

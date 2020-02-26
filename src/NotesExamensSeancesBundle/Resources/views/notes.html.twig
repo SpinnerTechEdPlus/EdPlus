@@ -1,0 +1,194 @@
+{% extends 'base_ecole.html.twig' %}
+{% block content %}
+
+
+
+    <div class="page-header">
+        <h3 class="page-title">
+                <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                  <i class="mdi mdi-book"> </i>
+                </span> Notes d'examen {{ examen.matiere.nom }} </h3>
+        <nav aria-label="breadcrumb">
+
+        </nav>
+    </div>
+
+
+
+<div class="col-lg-12 grid-margin stretch-card" id="Notes">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Classe : <code>{{  examen.classe.nom }}</code></h4>
+            <p class="card-description">
+            </p><br>
+            <div class="col-sm-12 col-md-12 col-lg-12" style="float : right;"  >
+
+                <a  style="float : right;" onclick="sortItDown();" href="javascript:void(0);" style="text-decoration : none; "> <i class="mdi mdi-sort-descending" style="margin-left :11px;"></i> Trier Ordre Décroissant </a>&nbsp;&nbsp;
+                <a  style="float : right;" onclick="sortItUp();" href="javascript:void(0);" style="text-decoration : none; "> <i class="mdi mdi-sort-ascending" style=""></i> Trier Ordre Croissant </a>
+            </div>
+
+            <center><br><br><input type="text" class="form-control form-control-sm" placeholder="Rechercher ( note ou étudiant ) . . ." oninput="change($(this));"  onkeydown="change($(this));" onkeyup="change($(this));"  onchange="change($(this));" id="nomEtudiant" ></center>
+
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>
+                        <center>Photo</center>
+                    </th>
+                    <th>
+                        <center>Etudiant</center>
+                    </th>
+                    <th>
+                        <center>Note Exam</center>
+                    </th>
+                    <th>
+                        <center>Supprimer</center>
+                    </th>
+
+                </tr>
+                </thead>
+                <tbody id="myTable">    {% for e in etudiants %}
+                <tr {% set found = 0 %}    {% for n in notes %} {% if n.etudiant.id == e.id %} note="{{ n.note }}" {% set found = 1 %} {% endif %}  {% endfor %} {% if found == 0 %} note="-1" {% endif %} >
+                    <td class="py-1">
+                        <center><img src="{{ asset('Back_assets/assets/images/faces-clipart/pic-1.png') }}" alt="image"></center>
+                    </td>
+                    <td name="{{ e.nom|lower }}">
+                        <center>{{ e.nom }}</center>
+                    </td>
+                    <td>
+                        <center><input type="number" class="form-control form-control-sm" placeholder="note"
+                               etudiant="{{ e.id }}"   examen="{{ examen.id }}"   {% set found = 0 %}    {% for n in notes %} {% if n.etudiant.id == e.id %} value="{{ n.note }}" noteid="{{ n.id }}" note="{{ n.note }}" {% set found = 1 %} {% endif %}  {% endfor %} {% if found == 0 %} notset="1" {% endif %} readonly="true" style="width : 50%;" min="0" max="20" ondblclick="noteChange($(this));" onchange="updateNote($(this));"></center>
+                    </td>
+
+                    <td>
+                        <center>&nbsp;<a onclick="deleteNote($(this).parent().parent().parent().find('input'));" href="javascript:void(0)" ><i class="mdi mdi-delete" ></i></a>
+                        </center>
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block javascript %}
+<script>
+function change(selector) {
+    if(selector.val()!=""){
+        $('tr').hide();
+        $('thead tr').show();
+        $( "td[name*='"+selector.val().toLowerCase()+"']").parent().show();
+        $( "input[note*='"+selector.val().toLowerCase()+"']").parent().parent().parent().show();
+    }
+    else {
+        $('tr').show();
+    }
+}
+
+function sortItUp(){
+
+    var tb = $('#myTable');
+    var rows = tb.find('tr');
+    rows.sort(function(a, b) {
+        var keyA = $(a).attr('note');
+        var keyB = $(b).attr('note');
+        return keyA - keyB;
+    });
+    $.each(rows, function(index, row) {
+        tb.append(row);
+    });
+
+
+
+
+
+}
+
+function sortItDown(){
+
+    var tb = $('#myTable');
+    var rows = tb.find('tr');
+    rows.sort(function(a, b) {
+        var keyA = $(a).attr('note');
+        var keyB = $(b).attr('note');
+        return keyB - keyA;
+    });
+    $.each(rows, function(index, row) {
+        tb.append(row);
+    });
+
+
+
+
+
+}
+
+function noteChange(selector){
+    $(':input[type="number"]').attr('readonly', 'true');
+    selector.removeAttr('readonly');
+}
+
+function updateNote(selector){
+
+    if(selector.val() >= 0 && selector.val() <= 20  && selector.val()!="" )
+    {
+     if(selector.attr('notset') == 1 )
+     {
+
+         $.ajax({url: "http://localhost:8000/addnote/"+selector.attr('examen')+"/"+selector.attr('etudiant')+"/"+selector.val() , success: function(result){
+                 selector.removeAttr('notset');
+                 selector.attr('noteid', result);
+                 selector.attr('note', selector.val());
+                 selector.parent().parent().parent().attr('note',selector.val());
+             }});
+
+     }
+
+     else {
+
+         $.ajax({url: "http://localhost:8000/editnote/"+selector.attr('noteid')+"/"+selector.val() , success: function(result){
+                 selector.attr('note', selector.val());
+                 selector.parent().parent().parent().attr('note',selector.val());
+             }});
+
+     }
+    }
+    else {
+        deleteNote(selector);
+    }
+
+}
+
+function deleteNote(selector){
+
+    $.ajax({url: "http://localhost:8000/deletenote/"+selector.attr('noteid') , success: function(result){
+            selector.attr('note', '-1');
+            selector.attr('notset', '1');
+            selector.removeAttr('noteid');
+            selector.val("");
+            selector.parent().parent().parent().attr('note','-1');
+        }});
+
+}
+
+$("#addSeance").hide();
+$("#editSeance").hide();
+
+function editSeance(id,idprof,idmatiere,idsalle,jour,debut,fin) {
+    $("#idSeance").val(id);
+    $("select").find('option').attr("selected",false) ;
+    $("#Eprof"+idprof).attr("selected",true) ;
+    $("#Ematiere"+idmatiere).attr("selected",true) ;
+    $("#Esalle"+idsalle).attr("selected",true) ;
+
+    $("#Ejour").val(jour);
+    $("#Edebut").val(debut);
+    $("#Efin").val(fin);
+    $('html, body').animate({scrollTop: 0}, 'fast');
+    $("#editSeance").show();
+    $("#Seances").hide();
+}
+</script>
+
+{% endblock %}

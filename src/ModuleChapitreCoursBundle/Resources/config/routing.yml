@@ -2,8 +2,8 @@ module_chapitre_cours_homepage:
     path:     /Matiere/{id}/Modules
     defaults: { _controller: ModuleChapitreCoursBundle:Module:index }
 module_chapitre_cours_stats:
-        path:     /Matiere/{id}/Modules/stats
-        defaults: { _controller: ModuleChapitreCoursBundle:Module:stat }
+    path:     /Matiere/{id}/Modules/stats
+    defaults: { _controller: ModuleChapitreCoursBundle:Module:stat }
 
 module_chapitre_coursf_homepage:
     path:     /Module/{id}/Chapitres
@@ -18,10 +18,10 @@ module_delete:
     defaults: { _controller: ModuleChapitreCoursBundle:Module:del }
 
 cours_add:
-        path:     /cours/add
-        defaults: { _controller: ModuleChapitreCoursBundle:Cours:add }
+    path:     /cours/add
+    defaults: { _controller: ModuleChapitreCoursBundle:Cours:add }
 cours_list:
-    path:     /cours/mine
+    path:     /cours/list
     defaults: { _controller: ModuleChapitreCoursBundle:Cours:list }
 cours_del:
     path:     /cours/{id}/delete

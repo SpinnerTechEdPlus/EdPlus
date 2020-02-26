@@ -14,7 +14,7 @@ class ExamensController extends Controller
         $em = $this->getDoctrine()->getManager();
         $classe = $em->getRepository(Classe::class)->find($id);
 
-        if(count($classe)!=1){
+        if(!($classe)){
 
             return $this->render('@NotesExamensSeances/error.html.twig', array( ));
 
