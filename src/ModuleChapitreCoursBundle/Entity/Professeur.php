@@ -5,18 +5,13 @@ namespace ModuleChapitreCoursBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Chapitre
+ * Professeur
  *
- * @ORM\Table(name="chapitre")
- * @ORM\Entity(repositoryClass="ModuleChapitreCoursBundle\Repository\ChapitreRepository")
+ * @ORM\Table(name="professeur")
+ * @ORM\Entity(repositoryClass="ModuleChapitreCoursBundle\Repository\ProfesseurRepository")
  */
-class Chapitre
+class Professeur
 {
-    public function __toString()
-    {
-        return (string) $this->module->getNom().' : '.$this->nom;
-    }
-
     /**
      * @var int
      *
@@ -26,34 +21,18 @@ class Chapitre
      */
     private $id;
 
+    public function __toString()
+    {
+        return (string) $this->nom;
+    }
+
     /**
      * @var string
      *
      * @ORM\Column(name="nom", type="string", length=255)
      */
     private $nom;
-    /**
-     * @var int
-     * @ORM\ManyToOne(targetEntity="Module")
-     * @ORM\JoinColumn(name="module",referencedColumnName="id")
-     */
-    private $module;
 
-    /**
-     * @return int
-     */
-    public function getModule()
-    {
-        return $this->module;
-    }
-
-    /**
-     * @param int $module
-     */
-    public function setModule($module)
-    {
-        $this->module = $module;
-    }
 
     /**
      * Get id
@@ -70,7 +49,7 @@ class Chapitre
      *
      * @param string $nom
      *
-     * @return Chapitre
+     * @return Professeur
      */
     public function setNom($nom)
     {
