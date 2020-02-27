@@ -19,11 +19,14 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new UtilisateursBundle\UtilisateursBundle(),
+            new NotesExamensSeancesBundle\NotesExamensSeancesBundle(),
+            new ModuleChapitreCoursBundle\ModuleChapitreCoursBundle(),
+            new SaharBundle\SaharBundle(),
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new CMEN\GoogleChartsBundle\CMENGoogleChartsBundle(),
             new GestionNiveauxBundle\GestionNiveauxBundle(),
             new MailBundle\MailBundle(),
-            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
-
+            new BlocBundle\BlocBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

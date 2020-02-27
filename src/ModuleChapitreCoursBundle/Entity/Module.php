@@ -29,7 +29,7 @@ class Module
     private $nom;
     /**
      * @var int
-     * @ORM\ManyToOne(targetEntity="\NotesExamensSeancesBundle\Entity\Matiere")
+     * @ORM\ManyToOne(targetEntity="\GestionNiveauxBundle\Entity\matiere")
      * @ORM\JoinColumn(name="matiere",referencedColumnName="id")
      */
     private $matiere;

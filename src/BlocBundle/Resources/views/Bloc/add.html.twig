@@ -1,0 +1,14 @@
+{% extends 'base_ecole.html.twig' %}
+{% block title %}searchbloc{% endblock %}
+{% block content %}
+
+{{ form_start(form) }}
+
+<center>
+    <br> veuilller indiquer les information sur le bloc <br><br>
+    {{ form_widget(form) }}
+</center>
+
+{{ form_end(form) }}
+
+{% endblock %}

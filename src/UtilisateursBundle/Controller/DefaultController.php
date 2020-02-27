@@ -64,15 +64,22 @@ class DefaultController extends Controller
             $username=$form["username"]->getData();
             $password=$form["plainPassword"]->getData();
 
-            $from = 'eyapidev@gmail.com';
 
-            $message = (new \Swift_Message('Hello Email'))
-                ->setSubject("account created")
-                ->setFrom($from)
+            $transport = \Swift_SmtpTransport::newInstance()
+                ->setUsername('edplusplus@outlook.com')->setPassword('Ed101010')
+                ->setHost('smtp-mail.outlook.com')
+                ->setPort(587)->setEncryption('tls');
+
+            $mailer = \Swift_Mailer::newInstance($transport);
+
+            $message = \Swift_Message::newInstance()
+                ->setSubject('ED PLUS | Compte Professeur crée')
+                ->setFrom(array('edplusplus@outlook.com' => 'ED +'))
                 ->setTo($to)
                 ->setBody("Your username is ".$username."**** your password is ".$password);
+            ;
 
-            $this->get('mailer')->send($message);
+            $result = $mailer->send($message);
 
 
             $em = $this->getDoctrine()->getManager();
@@ -189,8 +196,10 @@ class DefaultController extends Controller
             $qb->select('u')
                 ->from('UtilisateursBundle:User', 'u') // Change this to the name of your bundle and the name of your mapped user Entity
                 ->where('u.matiere = :str')
+
                 ->andWhere('u.roles LIKE :roles')
                 ->andWhere('u.User = :user')
+                ->orderBy('u.searchName', 'ASC')
                 ->setParameter('user', $id)
                 ->setParameter('str', $matiere)
                 ->setParameter('roles', '%"' . $role . '"%');
@@ -293,8 +302,10 @@ class DefaultController extends Controller
             ->from('UtilisateursBundle:User', 'u') // Change this to the name of your bundle and the name of your mapped user Entity
             ->where('u.User = :user')
             ->andWhere('u.roles LIKE :roles')
+            ->orderBy('u.searchName', 'ASC')
             ->setParameter('user', $id)
-            ->setParameter('roles', '%"' . $role . '"%');
+            ->setParameter('roles', '%"' . $role . '"%')
+             ;
 
         $user = $qb->getQuery()->getResult();
         $query=$em->createQuery($qb);
@@ -348,17 +359,22 @@ class DefaultController extends Controller
             $username=$form["username"]->getData();
             $password=$form["plainPassword"]->getData();
 
-            $from = 'eyapidev@gmail.com';
 
-            $message = (new \Swift_Message('Hello Email'))
-                ->setSubject("account created")
-                ->setFrom($from)
+            $transport = \Swift_SmtpTransport::newInstance()
+                ->setUsername('edplusplus@outlook.com')->setPassword('Ed101010')
+                ->setHost('smtp-mail.outlook.com')
+                ->setPort(587)->setEncryption('tls');
+
+            $mailer = \Swift_Mailer::newInstance($transport);
+
+            $message = \Swift_Message::newInstance()
+                ->setSubject('ED PLUS | Compte etudiant crée')
+                ->setFrom(array('edplusplus@outlook.com' => 'ED +'))
                 ->setTo($to)
-                ->setBody("Your username is ".$username."**** your password is ".$password);
+                ->setBody("Votre compte etudiant a été créer avec succée  - USER : ".$username." Mote de Passe : ".$password);
+            ;
 
-            $this->get('mailer')->send($message);
-
-
+            $result = $mailer->send($message);
 
             $em = $this->getDoctrine()->getManager();
 
@@ -479,6 +495,8 @@ class DefaultController extends Controller
                 ->where('u.classe = :str')
                 ->andWhere('u.roles LIKE :roles')
                 ->andWhere('u.User = :user')
+                ->orderBy('u.classe', 'ASC')
+
                 ->setParameter('user', $id)
                 ->setParameter('str', $classe)
                 ->setParameter('roles', '%"' . $role . '"%');
@@ -581,6 +599,7 @@ class DefaultController extends Controller
             ->from('UtilisateursBundle:User', 'u') // Change this to the name of your bundle and the name of your mapped user Entity
             ->where('u.User = :user')
             ->andWhere('u.roles LIKE :roles')
+            ->orderBy('u.classe', 'ASC')
             ->setParameter('user', $id)
             ->setParameter('roles', '%"' . $role . '"%');
 
@@ -675,11 +694,19 @@ class DefaultController extends Controller
         $stat=['classe', 'NbrEtudiant'];
         $nb=0;
         array_push($data,$stat);
+
         foreach($classes as $classe) {
             $stat=array();
-            array_push($stat,$classe->getNom(),(($classe->getNbrEtudiant()) *100)/$totalEtudiant);
-            $nb=($classe->getNbrEtudiant() *100)/$totalEtudiant;
-            $stat=[$classe->getNom() ,$nb];
+            if($totalEtudiant==0)
+            {
+                $pourcentage = 0;
+            }
+            else {
+                $pourcentage = ($classe->getNbrEtudiant() *100) /$totalEtudiant ;
+            }
+            array_push($stat,$classe->getNom(),($pourcentage));
+
+            $stat=[$classe->getNom() ,$pourcentage];
             array_push($data,$stat);
 
         }

@@ -8,13 +8,15 @@ use NotesExamensSeancesBundle\Entity\Note;
 use NotesExamensSeancesBundle\Entity\Osms;
 use NotesExamensSeancesBundle\Entity\Seance;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use UtilisateursBundle\Entity\User;
 
 class NotesController extends Controller
 {
 
     public function ClassesListAction(){
+        $user = $this->get('security.token_storage')->getToken()->getUser();
 
-        $profId = 1 ;
+        $profId = $user->getId();
 
         $em = $this->getDoctrine()->getManager();
         $examens = $em->getRepository(Examen::class)->findAll();
@@ -41,7 +43,7 @@ class NotesController extends Controller
         $examen = $em->getRepository(Examen::class)->find($id);
 
 
-        $etudiants = $em->getRepository(Etudiant::class)->findBy(array('classe' => $examen->getClasse()));
+        $etudiants = $em->getRepository(User::class)->findBy(array('classe' => $examen->getClasse()));
 
         $notes = $em->getRepository(Note::class)->findBy(array('examen' => $id));
 
@@ -59,7 +61,7 @@ class NotesController extends Controller
 
         $em = $this->getDoctrine()->getManager();
         $nvexamen = $em->getRepository(Examen::class)->find($examen);
-        $nvetudiant = $em->getRepository(Etudiant::class)->find($etudiant);
+        $nvetudiant = $em->getRepository(User::class)->find($etudiant);
         $notee->setNote($note);
         $notee->setEtudiant($nvetudiant);
         $notee->setExamen($nvexamen);
@@ -69,7 +71,7 @@ class NotesController extends Controller
         $nt = $em->getRepository(Note::class)->findOneBy(array('examen' => $examen , 'etudiant' => $etudiant));
 
         $transport = \Swift_SmtpTransport::newInstance()
-            ->setUsername('edplustn@outlook.com')->setPassword('ed10203030')
+            ->setUsername('edplusplus@outlook.com')->setPassword('Ed101010')
             ->setHost('smtp-mail.outlook.com')
             ->setPort(587)->setEncryption('tls');
 
@@ -77,8 +79,8 @@ class NotesController extends Controller
 
         $message = \Swift_Message::newInstance()
             ->setSubject('ED PLUS | Nouvelle Note Ajouté')
-            ->setFrom(array('edplustn@outlook.com' => 'ED +'))
-            ->setTo(array($nvetudiant->getMail() => $nvetudiant->getMail()))
+            ->setFrom(array('edplusplus@outlook.com' => 'ED +'))
+            ->setTo(array($nvetudiant->getEmail() => $nvetudiant->getEmail()))
             ->addPart("<h1>Ed+ | VOTRE NOTE DE  L'EXAMEN ". $nvexamen->getMatiere()->getNom()." EST PUBLIÉ  - VOTRE NOTE :  ".$note."</h1>",'text/html')
         ;
 

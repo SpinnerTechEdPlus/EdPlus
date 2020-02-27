@@ -10,13 +10,15 @@ use GestionNiveauxBundle\Form\matiereType;
 
 class matiereController extends Controller
 {
-    public function createMatiereAction(Request $request)
+    public function createMatiereAction(Request $request,$id)
 {
     $matiere = new matiere();
     $form = $this->createForm(matiereType::class, $matiere);
     $form->handleRequest($request);
     if ($form->isSubmitted() && $form->isValid()) {
         $matiere = $form->getData();
+        $niveau = $this->getDoctrine()->getRepository('GestionNiveauxBundle:niveau')->find($id);
+        $matiere->setNiveau($niveau);
         $em = $this->getDoctrine()->getManager();
         $em->persist($matiere);
         $em->flush();
@@ -28,7 +30,7 @@ class matiereController extends Controller
     public function matiereAction($id)
     {
         $matieres = $this->getDoctrine()->getRepository('GestionNiveauxBundle:matiere')->findBy(array('niveau'=>$id));
-        return $this->render('@Utilisateurs/matiere.html.twig', ['matieres'=>$matieres]);
+        return $this->render('@Utilisateurs/matiere.html.twig', ['matieres'=>$matieres ,'idniveau' => $id]);
 
     }
     public function deleteMatiereAction($id)

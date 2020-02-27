@@ -30,7 +30,7 @@ namespace UtilisateursBundle\Entity;
         /**
          * @var string
          *
-         * @ORM\Column(name="searchName", type="string", length=255)
+         * @ORM\Column(name="searchName", type="string", length=255 , nullable=true)
          */
         public $searchName;
 
@@ -191,7 +191,7 @@ namespace UtilisateursBundle\Entity;
          * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
          */
 
-        public $User;
+        public $User = null ;
 
         /**
          * @return mixed
@@ -201,6 +201,29 @@ namespace UtilisateursBundle\Entity;
             return $this->User;
         }
 
+        /**
+         * @return int
+         */
+        public function getTel()
+        {
+            return $this->tel;
+        }
+
+        /**
+         * @param int $tel
+         *
+         */
+        public function setTel($tel)
+        {
+            $this->tel = $tel;
+        }
+
+        /**
+         * @var int
+         *
+         * @ORM\Column(name="tel", type="integer",nullable=true)
+         */
+        public $tel = 0 ;
         /**
          * @param mixed $User
          */
@@ -214,7 +237,7 @@ namespace UtilisateursBundle\Entity;
         public function __construct()
         {
             parent::__construct();
-          // $this->User=new ArrayCollection();
+            $this->User= null;
 
         }
 

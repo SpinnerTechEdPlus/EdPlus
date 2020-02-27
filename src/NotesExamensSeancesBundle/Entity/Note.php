@@ -23,7 +23,7 @@ class Note
 
     /**
      * @var int
-     * @ORM\ManyToOne(targetEntity="Etudiant")
+     * @ORM\ManyToOne(targetEntity="\UtilisateursBundle\Entity\User")
      * @ORM\JoinColumn(name="etudiant",referencedColumnName="id")
      */
     private $etudiant;

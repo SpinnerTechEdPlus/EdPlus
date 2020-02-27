@@ -1,0 +1,43 @@
+{% extends 'base_ecole.html.twig' %}
+{% block title %}searchbloc{% endblock %}
+{% block content %}
+    <div class="page-header">
+        <h3 class="page-title">
+                <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                  <i class="mdi mdi-book"> </i>
+                </span> Salles</h3>
+
+    </div>
+
+    <div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+    <div class="card-body">
+    <table class="table table-bordered">
+        <tr>
+            <th> numero de l'etages </th>
+            <th> Nombre de salle  </th>
+        </tr>
+        {% for pr in etages %}
+            <tr>
+                <td>
+                    {{ pr.numero}}
+                </td>
+                <td>
+                    {{ pr.nbsalle }}
+                </td>
+
+               <td>
+                    <a href="{{ path('etages_delete', { 'id': pr.id }) }}"> Remove </a>
+                </td>
+                <td>
+                      <a href="{{ path('etages_update', { 'id': pr.id }) }}"> Update </a>
+                  </td>
+                 {#<td>
+                      <a href="{{ path('addtopanierpr', { 'id': pr.id }) }}"> Add To Cart </a>
+                  </td>
+                  <td>#}
+            </tr>
+        {% endfor %}
+    </table></div></div></div>
+</center>
+{% endblock %}

@@ -44,7 +44,7 @@ class Etudiant
 
     /**
      * @var int
-     * @ORM\ManyToOne(targetEntity="Classe")
+     * @ORM\ManyToOne(targetEntity="\GestionNiveauxBundle\Entity\classe")
      * @ORM\JoinColumn(name="classe",referencedColumnName="id")
      */
     private $classe;

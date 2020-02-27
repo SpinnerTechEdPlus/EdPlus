@@ -52,8 +52,8 @@
                     <td class="py-1">
                         <center><img src="{{ asset('Back_assets/assets/images/faces-clipart/pic-1.png') }}" alt="image"></center>
                     </td>
-                    <td name="{{ e.nom|lower }}">
-                        <center>{{ e.nom }}</center>
+                    <td name="{{ e.username|lower }}">
+                        <center>{{ e.username }}</center>
                     </td>
                     <td>
                         <center><input type="number" class="form-control form-control-sm" placeholder="note"
@@ -135,7 +135,7 @@ function updateNote(selector){
     {
      if(selector.attr('notset') == 1 )
      {
-
+         alert("http://localhost:8000/addnote/"+selector.attr('examen')+"/"+selector.attr('etudiant')+"/"+selector.val());
          $.ajax({url: "http://localhost:8000/addnote/"+selector.attr('examen')+"/"+selector.attr('etudiant')+"/"+selector.val() , success: function(result){
                  selector.removeAttr('notset');
                  selector.attr('noteid', result);
@@ -146,7 +146,7 @@ function updateNote(selector){
      }
 
      else {
-
+                    alert("http://localhost:8000/editnote/"+selector.attr('noteid')+"/"+selector.val());
          $.ajax({url: "http://localhost:8000/editnote/"+selector.attr('noteid')+"/"+selector.val() , success: function(result){
                  selector.attr('note', selector.val());
                  selector.parent().parent().parent().attr('note',selector.val());

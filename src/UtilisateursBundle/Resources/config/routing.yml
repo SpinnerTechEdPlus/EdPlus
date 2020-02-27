@@ -26,7 +26,7 @@ matiere_homepage:
   defaults: { _controller: GestionNiveauxBundle:matiere:matiere }
 
 createMatiere:
-  path:     /createMatiere
+  path:     /createMatiere/{id}
   defaults: { _controller: GestionNiveauxBundle:matiere:createMatiere }
 
 deleteMatiere:
@@ -111,7 +111,7 @@ classe_homepage:
   defaults: { _controller: GestionNiveauxBundle:classe:classe }
 
 createClasse:
-  path:     /createClasse
+  path:     /createClasse/{id}
   defaults: { _controller: GestionNiveauxBundle:classe:createClasse }
 
 deleteClasse:

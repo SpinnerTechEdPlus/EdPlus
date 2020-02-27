@@ -12,7 +12,7 @@ class ExamensController extends Controller
 {
     public function listAction($id){
         $em = $this->getDoctrine()->getManager();
-        $classe = $em->getRepository(Classe::class)->find($id);
+        $classe = $em->getRepository(\GestionNiveauxBundle\Entity\classe::class)->find($id);
 
         if(!($classe)){
 
@@ -25,8 +25,8 @@ class ExamensController extends Controller
                 && isset($_POST['idExam']) && !empty($_POST['idExam'])
             ) {
                 $examen = $em->getRepository(Examen::class)->find($_POST['idExam']);
-                $nvmatiere = $em->getRepository(Matiere::class)->find($_POST['EidMatiere']);
-                $nvsalle = $em->getRepository(Salle::class)->find($_POST['EidSalle']);
+                $nvmatiere = $em->getRepository(\GestionNiveauxBundle\Entity\matiere::class)->find($_POST['EidMatiere']);
+                $nvsalle = $em->getRepository(\BlocBundle\Entity\Salle::class)->find($_POST['EidSalle']);
                 $examen->setClasse($classe);
                 $examen->setHoraire(new \DateTime($_POST['Ehoraire']));
                 $examen->setMatiere($nvmatiere);
@@ -47,8 +47,8 @@ class ExamensController extends Controller
             {
                 $examen = new Examen();
 
-               $nvmatiere = $em->getRepository(Matiere::class)->find($_POST['idMatiere']);
-               $nvsalle = $em->getRepository(Salle::class)->find($_POST['idSalle']);
+               $nvmatiere = $em->getRepository(\GestionNiveauxBundle\Entity\matiere::class)->find($_POST['idMatiere']);
+               $nvsalle = $em->getRepository(\BlocBundle\Entity\Salle::class)->find($_POST['idSalle']);
                 $examen->setClasse($classe);
                 $examen->setHoraire(new \DateTime($_POST['horaire']));
                 $examen->setMatiere($nvmatiere);
@@ -62,8 +62,8 @@ class ExamensController extends Controller
 
 
             $examens = $em->getRepository(Examen::class)->findBy(array('classe' => $id));
-            $matieres = $em->getRepository(Matiere::class)->findBy(array('classe' => $id));
-            $salles = $em->getRepository(Salle::class)->findAll();
+            $matieres = $em->getRepository(\GestionNiveauxBundle\Entity\matiere::class)->findBy(array('niveau' => $classe->getNiveau()->getId()));
+            $salles = $em->getRepository(\BlocBundle\Entity\Salle::class)->findAll();
 
 
 

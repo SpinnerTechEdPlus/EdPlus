@@ -1,0 +1,46 @@
+{% extends 'base_ecole.html.twig' %}
+{% block title %}searchbloc{% endblock %}
+{% block content %}
+    <div class="page-header">
+        <h3 class="page-title">
+                <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                  <i class="mdi mdi-book"> </i>
+                </span> Salles</h3>
+
+    </div>
+
+    <div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+    <div class="card-body">
+    <table class="table table-bordered">
+        <tr>
+            <th> Nom </th>
+            <th> Nombre d'etages   </th>
+        </tr>
+        {% for pr in bloc  %}
+            <tr>
+                <td>
+                    {{ pr.nom }}
+                </td>
+                <td>
+                    {{ pr.nbetages }}
+                </td>
+
+               <td>
+                    <a href="{{ path('bloc_delete', { 'id': pr.id }) }}"> Remove </a>
+                </td>
+                <td>
+                      <a href="{{ path('bloc_update', { 'id': pr.id }) }}"> Update </a>
+                  </td>
+                 <td>
+                      <a href="{{ path('bloc_search') }}"> Search </a>
+                  </td>
+                  <td>
+            </tr>
+        {% endfor %}
+    </table></div></div></div>
+</center>
+    <div class = "navigation">
+        {{knp_pagination_render(bloc)}}
+    </div>
+{% endblock %}

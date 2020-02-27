@@ -22,28 +22,28 @@ class Seance
     private $id;
     /**
      * @var int
-     * @ORM\ManyToOne(targetEntity="Salle")
+     * @ORM\ManyToOne(targetEntity="\BlocBundle\Entity\Salle")
      * @ORM\JoinColumn(name="salle",referencedColumnName="id")
      */
     private $salle;
 
     /**
      * @var int
-     * @ORM\ManyToOne(targetEntity="Matiere")
+     * @ORM\ManyToOne(targetEntity="\GestionNiveauxBundle\Entity\matiere")
      * @ORM\JoinColumn(name="matiere",referencedColumnName="id")
      */
     private $matiere;
 
     /**
      * @var int
-     * @ORM\ManyToOne(targetEntity="Professeur")
+     * @ORM\ManyToOne(targetEntity="\UtilisateursBundle\Entity\User")
      * @ORM\JoinColumn(name="professeur",referencedColumnName="id")
      */
     private $professeur;
 
     /**
      * @var int
-     * @ORM\ManyToOne(targetEntity="Classe")
+     * @ORM\ManyToOne(targetEntity="\GestionNiveauxBundle\Entity\classe")
      * @ORM\JoinColumn(name="classe",referencedColumnName="id")
      */
     private $classe;
