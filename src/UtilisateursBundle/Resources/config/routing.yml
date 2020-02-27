@@ -21,12 +21,19 @@ updateNiveau:
   defaults: { _controller: GestionNiveauxBundle:niveau:updateNiveau }
 
 
+searchNiveau:
+  path:     /searchNiveau
+  defaults: { _controller: GestionNiveauxBundle:niveau:searchNiveau }
+
+
+
+
 matiere_homepage:
   path:     ecole/matiere/{id}
   defaults: { _controller: GestionNiveauxBundle:matiere:matiere }
 
 createMatiere:
-  path:     /createMatiere
+  path:     /createMatiere/{id}
   defaults: { _controller: GestionNiveauxBundle:matiere:createMatiere }
 
 deleteMatiere:
@@ -106,12 +113,17 @@ etudiant_search_ajax:
 
 
 
+
+
+
+
+
 classe_homepage:
   path:     ecole/classe/{id}
   defaults: { _controller: GestionNiveauxBundle:classe:classe }
 
 createClasse:
-  path:     /createClasse
+  path:     /createClasse/{id}
   defaults: { _controller: GestionNiveauxBundle:classe:createClasse }
 
 deleteClasse:

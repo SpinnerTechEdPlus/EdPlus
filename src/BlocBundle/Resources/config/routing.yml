@@ -1,0 +1,55 @@
+bloc_homepage:
+    path:     /
+    defaults: { _controller: BlocBundle:Default:index }
+
+bloc_add:
+    path:     /addb
+    defaults: { _controller: BlocBundle:Default:addbloc }
+
+bloc_read:
+    path:     /readb
+    defaults: { _controller: BlocBundle:Default:readb }
+
+bloc_delete:
+    path:     /deleteb/{id}
+    defaults: { _controller: BlocBundle:Default:deleteb }
+
+bloc_update:
+    path:     /updateb/{id}
+    defaults: { _controller: BlocBundle:Default:updateb }
+
+etages_add:
+    path:     /adde
+    defaults: { _controller: BlocBundle:Default:adde }
+
+etages_read:
+    path:     /reade
+    defaults: { _controller: BlocBundle:Default:reade }
+
+etages_delete:
+    path:     /deletee/{id}
+    defaults: { _controller: BlocBundle:Default:deletee }
+
+etages_update:
+    path:     /updatee/{id}
+    defaults: { _controller: BlocBundle:Default:updatee }
+
+salle_add:
+    path:     /adds
+    defaults: { _controller: BlocBundle:Default:adds }
+
+salle_read:
+    path:     /reads
+    defaults: { _controller: BlocBundle:Default:reads }
+
+salle_delete:
+    path:     /deletes/{id}
+    defaults: { _controller: BlocBundle:Default:deletes }
+
+salle_update:
+    path:     /updates/{id}
+    defaults: { _controller: BlocBundle:Default:updates }
+
+bloc_search:
+    path:     /bloc_search
+    defaults: { _controller: BlocBundle:Default:bloc_search }

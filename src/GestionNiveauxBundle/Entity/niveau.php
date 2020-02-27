@@ -44,6 +44,11 @@ class niveau
         $this->classe = $classe;
     }
 
+    public function setId($classe)
+    {
+        $this->id = $classe;
+    }
+
 
     /**
      * @ORM\OneToMany(targetEntity="classe", mappedBy="niveau" )

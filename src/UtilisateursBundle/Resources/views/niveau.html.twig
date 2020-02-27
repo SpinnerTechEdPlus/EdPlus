@@ -15,6 +15,78 @@
                     </li>
                 </div> -->
                 <p class="btn btn-gradient-primary mr-2"> La liste des niveaux </p>
+
+                <div class="form-group">
+                    <a class="btn btn-gradient-info mr-2" href="{{path('chart')}}"> Chart </a>
+                </div>
+
+                <div class="form-group">
+
+                    <input type="text" class="form-control" name="username" id="search" >
+                </div>
+
+
+
+                <div class="form-group" id="entitiesNav">
+                </div>
+
+                <!-- ajax code here -->
+                <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+
+
+                <script type="text/javascript">
+                    jQuery(document).ready(function() {
+                        var searchRequest = null;
+                        $("#search").keyup(function() {
+                            var minlength = 1;
+                            var that = this;
+                            var value = $(this).val();
+                            var entitySelector = $("#entitiesNav").html('');
+                            if (value.length >= minlength ) {
+                                if (searchRequest != null)
+                                    searchRequest.abort();
+                                searchRequest = $.ajax({
+                                    type: "GET",
+                                    url: "{{ path('searchNiveau') }}",
+                                    data: {
+                                        'q' : value
+                                    },
+                                    dataType: "text",
+                                    success: function(msg){
+                                        //we need to check if the value is the same
+                                        if (value===$(that).val()) {
+                                            var result = JSON.parse(msg);
+                                            $.each(result, function(key, arr) {
+                                                $.each(arr, function(id, value) {
+                                                    if (key === 'niveaux') {
+                                                        if (id !== 'error') {
+                                                            console.log(value[1]);
+                                                            entitySelector.append('<table class="table table-bordered"><thead><tr><th> id </th><th> nom </th><tr><td>'+value[0]+'</td><td>'+value[1]+'</td></tr></table>');
+
+
+
+
+
+
+
+                                                        } else {
+                                                            entitySelector.append('<li class="errorLi">'+value+'</li>');
+                                                        }
+                                                    }
+                                                });
+                                            });
+                                        }
+                                    }
+                                });
+                            }
+                        });
+                    });
+                </script>
+
+
+
+
                 <table class="table table-bordered">
                     <thead>
                     <tr>
@@ -39,7 +111,7 @@
                             <a class="nav-link" href="{{ path('classe_homepage',{'id': niveau.id}) }}">
                                 <i class="mdi mdi-call-made menu-icon"></i>
                             </a>
-                            </li>
+
                         </td>
                         <td>
                             <a class="nav-link" href="{{ path('matiere_homepage',{'id': niveau.id}) }}">
@@ -52,7 +124,7 @@
                             </a>
                             </li>		 </td>
 
-                        <td>  <a class="nav-link" href="{{path('deleteNiveau',{'id': niveau.id}) }}">      <i class="mdi mdi-delete menu-icon"></i>
+                        <td>  <a class="nav-link" data-toggle="modal" data-target="#modal{{ niveau.id }} " id = modal{{ niveau.id }}>    <i class="mdi mdi-delete menu-icon"></i>
                             </a>
                             </li>		 </td>
 
@@ -61,8 +133,34 @@
 
                     </tr>
                     </tbody>
+
+                    <div class="modal fade" id="modal{{ niveau.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <div class="alert alert-warning" role="alert">
+                                        <h5 class="modal-title" id="exampleModalCenterTitle">Confirmer la suppression</h5>
+                                    </div>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>suprimer niveau <b>{{ niveau.nom }}</b> </p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <a href="{{path('deleteNiveau',{'id': niveau.id}) }}"><button type="button" class="btn btn-danger">Confirm</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     {% endfor %}
                 </table>
+            </div>
+            <div class="navigation">
+                {{ knp_pagination_render(niveaux) }}
             </div>
         </div>
     </div>

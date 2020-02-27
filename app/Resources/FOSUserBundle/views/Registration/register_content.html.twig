@@ -44,8 +44,8 @@
                               <div class="text-center mt-4 font-weight-light"> Already have an account? <a href="login.html" class="text-primary">Login</a>
                               </div>-->
                             <input type="submit" value="{{ 'registration.submit'|trans }}" />
-
-                            {{ form_end(form) }}
+                         <div  hidden >   {{form_widget(form.roles)}}
+                         </div>
                         </form>
                     </div>
                 </div>
@@ -64,5 +64,8 @@
 
 <div>
     </div>
+<script>
+    document.getElementById("fos_user_registration_form_roles").value = "ROLE_ECOLE";
 
+</script>
 {% endblock %}

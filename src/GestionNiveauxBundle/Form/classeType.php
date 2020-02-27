@@ -17,7 +17,6 @@ class classeType extends AbstractType
     {
         $builder->add('num',TextType::class,['attr' => ['class' => 'form-control'],])
             ->add('nbrEtudiant',TextType::class,['attr' => ['class' => 'form-control'],])
-            ->add('niveau')
 
             ->add('ajouter',SubmitType::class,['attr' => ['class' => 'btn btn-gradient-primary mr-2'],]);
 

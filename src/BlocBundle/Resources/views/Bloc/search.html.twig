@@ -1,0 +1,50 @@
+{% extends 'base_ecole.html.twig' %}
+{% block title %}searchbloc{% endblock %}
+{% block content %}
+
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+    {% if Blocs is not null and Blocs is empty %}
+
+            pas de Blocs !
+
+    {% else %}
+        {% if Blocs is not null %}
+            <h6>{{  Blocs|length }} Blocs(s) trouvée(s) : </h6><br>
+
+
+
+            <table class="table">
+            <thead>
+            <th scope="col">id</th>
+            <th scope="col">nom</th>
+            <th scope="col">nbetages</th>
+
+            </thead>
+            {% for Bloc in Blocs  %}
+                <tr>
+
+                    <th scope="row">{{Bloc.id}}</th>
+                    <td>{{Bloc.nom}}</td>
+                    <td>{{Bloc.nbetages}}</td>
+
+
+
+                </tr>
+
+
+
+            {% endfor %}
+        {% endif %}
+    {% endif %}
+    </table>
+
+
+
+
+
+
+    <a href="{{ path('bloc_read') }}" ><button class="btn btn-link">Return</button></a>
+
+{% endblock %}

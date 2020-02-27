@@ -1,0 +1,54 @@
+{% extends 'base_ecole.html.twig' %}
+{% block title %}Salle{% endblock %}
+{% block content %}
+<center>
+
+
+    <div class="page-header">
+        <h3 class="page-title">
+                <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                  <i class="mdi mdi-book"> </i>
+                </span> Salles</h3>
+
+    </div>
+
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+    <table class="table table-bordered">
+        <tr>
+            <th>   Nom</th>
+            <th> Nombre de place  </th>
+            <th> Modifier </th>
+            <th> Supprimer  </th>
+        </tr>
+        {% for pr in salle %}
+            <tr>
+                <td>
+                    {{ pr.nom}}
+                </td>
+                <td>
+                    {{ pr.numero}}
+                </td>
+
+
+                <td>
+                       <a href="{{ path('salle_delete', { 'id': pr.id }) }}"> Supprimer </a>
+                   </td>
+                     <td>
+                         <a href="{{ path('salle_update', { 'id': pr.id }) }}"> Modifier </a>
+                     </td>
+                  {#<td>
+                         <a href="{{ path('addtopanierpr', { 'id': pr.id }) }}"> Add To Cart </a>
+                     </td>
+                     <td>#}
+            </tr>
+        {% endfor %}
+    </table>
+
+                <a class="nav-link" href="{{ path('salle_add')}}">
+                    <button type="submit" class="btn btn-gradient-primary mr-2">Ajouter</button>
+                </a>
+            </div></div></div>
+</center>
+{% endblock %}

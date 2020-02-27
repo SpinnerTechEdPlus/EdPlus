@@ -19,7 +19,8 @@
                     <thead>
                     <tr>
                         <th> # </th>
-                        <th> nom du matière </th>
+                        <th> Nom </th>
+                        <th> Modules </th>
                         <th> Modifier </th>
                         <th> Supprimer </th>
                     </tr>
@@ -30,6 +31,9 @@
                         <td> {{ matiere.id }} </td>
                         <td> {{ matiere.nom}} </td>
 
+                        <td>  <a class="nav-link" href="/Matiere/{{ matiere.id }}/Modules">         <i class="mdi mdi-border-color menu-icon"></i>
+                            </a>
+                            </li>		 </td>
                         <td>  <a class="nav-link" href="{{path('updateMatiere',{'id': matiere.id}) }}">         <i class="mdi mdi-border-color menu-icon"></i>
                             </a>
                             </li>		 </td>
@@ -40,7 +44,7 @@
                     </tbody>
                     {% endfor %}
                 </table>
-                <a class="nav-link" href="{{ path('createMatiere') }}">
+                <a class="nav-link" href="/users/createMatiere/{{ idniveau }}">
                     <button type="submit" class="btn btn-gradient-primary mr-2">Ajouter</button>
                 </a>
             </div>

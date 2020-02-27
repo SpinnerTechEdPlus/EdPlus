@@ -2,6 +2,7 @@
 
 namespace GestionNiveauxBundle\Controller;
 
+use GestionNiveauxBundle\Entity\niveau;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
@@ -10,17 +11,20 @@ use GestionNiveauxBundle\Form\classeType;
 
 class classeController extends Controller
 {
-    public function createClasseAction(Request $request)
+    public function createClasseAction(Request $request,$id)
     {
         $classe = new classe();
         $form = $this->createForm(classeType::class, $classe);
 
         $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() ) {
             $classe = $form->getData();
 
-            $classe->setNom($classe->getNiveau()->getNom()."  ".$classe->getNum());
+            $niveau = $this->getDoctrine()->getRepository('GestionNiveauxBundle:niveau')->find($id);
 
+            $classe->setNom($niveau->getNom().$classe->getNum());
+
+            $classe->setNiveau($niveau);
             $em = $this->getDoctrine()->getManager();
 
             $em->persist($classe);
@@ -48,7 +52,7 @@ class classeController extends Controller
 
         }*/
 
-        return $this->render('@Utilisateurs/classe.html.twig', ['classes'=>$classes]);
+        return $this->render('@Utilisateurs/classe.html.twig', ['classes'=>$classes , 'idniveau' => $id]);
 
     }
     public function deleteClasseAction($id)

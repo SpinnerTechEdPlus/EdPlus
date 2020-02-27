@@ -8,6 +8,7 @@ use NotesExamensSeancesBundle\Entity\Professeur;
 use NotesExamensSeancesBundle\Entity\Salle;
 use NotesExamensSeancesBundle\Entity\Seance;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use UtilisateursBundle\Entity\User;
 
 class SeancesController extends Controller
 {
@@ -15,7 +16,7 @@ class SeancesController extends Controller
 
     public function listAction($id){
         $em = $this->getDoctrine()->getManager();
-        $classe = $em->getRepository(Classe::class)->find($id);
+        $classe = $em->getRepository(\GestionNiveauxBundle\Entity\classe::class)->find($id);
 
         if(!($classe)){
 
@@ -28,9 +29,9 @@ class SeancesController extends Controller
             {
                 $seance =  $em->getRepository(Seance::class)->find($_POST['idSeance']);
 
-                $nvmatiere = $em->getRepository(Matiere::class)->find($_POST['EidMatiere']);
-                $nvsalle = $em->getRepository(Salle::class)->find($_POST['EidSalle']);
-                $nvprofesseur = $em->getRepository(Professeur::class)->find($_POST['EidProf']);
+                $nvmatiere = $em->getRepository(\GestionNiveauxBundle\Entity\matiere::class)->find($_POST['EidMatiere']);
+                $nvsalle = $em->getRepository(\BlocBundle\Entity\Salle::class)->find($_POST['EidSalle']);
+                $nvprofesseur = $em->getRepository(User::class)->find($_POST['EidProf']);
                 $seance->setSalle($nvsalle);
                 $seance->setMatiere($nvmatiere);
                 $seance->setClasse($classe);
@@ -50,9 +51,9 @@ class SeancesController extends Controller
             {
                 $seance = new Seance();
 
-                $nvmatiere = $em->getRepository(Matiere::class)->find($_POST['idMatiere']);
-                $nvsalle = $em->getRepository(Salle::class)->find($_POST['idSalle']);
-                $nvprofesseur = $em->getRepository(Professeur::class)->find($_POST['idProf']);
+                $nvmatiere = $em->getRepository(\GestionNiveauxBundle\Entity\matiere::class)->find($_POST['idMatiere']);
+                $nvsalle = $em->getRepository(\BlocBundle\Entity\Salle::class)->find($_POST['idSalle']);
+                $nvprofesseur = $em->getRepository(User::class)->find($_POST['idProf']);
                 $seance->setSalle($nvsalle);
                 $seance->setMatiere($nvmatiere);
                 $seance->setClasse($classe);
@@ -68,9 +69,27 @@ class SeancesController extends Controller
 
 
             $seances = $em->getRepository(Seance::class)->findBy(array('classe' => $id));
-            $matieres = $em->getRepository(Matiere::class)->findBy(array('classe' => $id));
-            $salles = $em->getRepository(Salle::class)->findAll();
-            $professeurs =  $em->getRepository(Professeur::class)->findAll();
+            $matieres = $em->getRepository(\GestionNiveauxBundle\Entity\matiere::class)->findBy(array('niveau' => $classe->getNiveau()->getId()));
+            $salles = $em->getRepository(\BlocBundle\Entity\Salle::class)->findAll();
+
+            $user = $this->get('security.token_storage')->getToken()->getUser();
+            $id=$user->getId();
+
+            $role="ROLE_PROFESSEUR";
+            $em= $this->getDoctrine()->getManager();
+            $qb = $em->createQueryBuilder();
+
+
+            $qb->select('u')
+                ->from('UtilisateursBundle:User', 'u') // Change this to the name of your bundle and the name of your mapped user Entity
+                ->where('u.User = :user')
+                ->andWhere('u.roles LIKE :roles')
+                ->orderBy('u.searchName', 'ASC')
+                ->setParameter('user', $id)
+                ->setParameter('roles', '%"' . $role . '"%')
+            ;
+
+            $professeurs = $qb->getQuery()->getResult();
 
 
 

@@ -1,39 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5ff53382-9682-4bb6-9070-8a6f7e0b0f4e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/MailBundle/Controller/DefaultController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MailBundle/Controller/mailController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MailBundle/Entity/mail.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MailBundle/Form/mailType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MailBundle/MailBundle.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MailBundle/Repository/mailRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MailBundle/Resources/config/routing.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MailBundle/Resources/config/services.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MailBundle/Resources/views/Default/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MailBundle/Resources/views/mail/send_mail.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MailBundle/Tests/Controller/mailControllerTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Ed+.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Ed+.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/AppKernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/AppKernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/base_ecole.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/base_ecole.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/routing.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/services.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/services.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GestionNiveauxBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GestionNiveauxBundle/Controller/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GestionNiveauxBundle/Controller/classeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GestionNiveauxBundle/Controller/classeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GestionNiveauxBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/GestionNiveauxBundle/Resources/config/routing.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UtilisateursBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UtilisateursBundle/Controller/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UtilisateursBundle/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UtilisateursBundle/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UtilisateursBundle/Form/etudiantType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UtilisateursBundle/Form/etudiantType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UtilisateursBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/UtilisateursBundle/Resources/config/routing.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UtilisateursBundle/Resources/views/etudiant.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/UtilisateursBundle/Resources/views/etudiant.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UtilisateursBundle/Resources/views/professor.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/UtilisateursBundle/Resources/views/professor.html.twig" afterDir="false" />
-    </list>
+    <list default="true" id="5ff53382-9682-4bb6-9070-8a6f7e0b0f4e" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,18 +28,8 @@
     <expand />
     <select />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="JavaScript File" />
-      </list>
-    </option>
-  </component>
   <component name="FrameworkCommandLineHistory">
     <commandsHistory>
-      <command text="s generate:controller" />
-      <command text="c dump-autoload " />
-      <command text="s generate:bundle" />
       <command text="s generate:bundle " />
       <command text="s generate:bundle" />
       <command text="s doctrine:generate:entity " />
@@ -80,16 +38,24 @@
       <command text="s server:run " />
       <command text="s doctrine:schema:update --froce" />
       <command text="s doctrine:schema:update --force" />
+      <command text="s generate:bundle" />
+      <command text="s generate:controller" />
+      <command text="s doctrine:generate:entity " />
+      <command text="s doctrine:schema:update --force" />
+      <command text="s server:run " />
+      <command text="s doctrine:schema:update --force" />
+      <command text="s server:run " />
+      <command text="s doctrine:generate:entity " />
+      <command text="s doctrine:schema:update" />
+      <command text="s doctrine:schema:update --force " />
+      <command text="s generate:controller" />
+      <command text="s doctrine:schema:update --force" />
+      <command text="s doctrine:generate:entity " />
+      <command text="s doctrine:schema:update --force" />
+      <command text="s doctrine:generate:entities " />
+      <command text="s doctrine:generate:entity " />
+      <command text="s swiftmailer:email:send" />
     </commandsHistory>
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="JsFlowSettings">
-    <service-enabled>true</service-enabled>
-    <exe-path />
-    <other-services-enabled>true</other-services-enabled>
-    <auto-save>true</auto-save>
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -133,22 +99,19 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/common" />
       <path value="$PROJECT_DIR$/vendor/doctrine/annotations" />
       <path value="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle" />
-      <path value="$PROJECT_DIR$/vendor/friendsofsymfony/message-bundle" />
-      <path value="$PROJECT_DIR$/vendor/cmen/google-charts-bundle" />
-      <path value="$PROJECT_DIR$/vendor/knplabs/knp-components" />
-      <path value="$PROJECT_DIR$/vendor/knplabs/knp-paginator-bundle" />
-      <path value="$PROJECT_DIR$/vendor/jms/metadata" />
       <path value="$PROJECT_DIR$/vendor/vich/uploader-bundle" />
+      <path value="$PROJECT_DIR$/vendor/jms/metadata" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-paginator-bundle" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-components" />
+      <path value="$PROJECT_DIR$/vendor/cmen/google-charts-bundle" />
+      <path value="$PROJECT_DIR$/vendor/friendsofsymfony/message-bundle" />
     </include_path>
   </component>
   <component name="ProjectId" id="1XciXJS40LjX4TORthxmiUiNYsG" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SmartStartSymfony-master/SmartStartSymfony-master" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -156,28 +119,40 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="settings.github" />
-    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/src/UtilisateursBundle/Form/UserType.php" />
+    <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.zend.framework.tool" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\Ed+\src" />
-      <recent name="C:\wamp64\www\Ed+\src\UtilisateursBundle\Resources\views\FormViews" />
-      <recent name="C:\wamp64\www\Ed+\app\Resources\FOSUserBundle" />
-      <recent name="C:\wamp64\www\Ed+\app\Resources\FOSUserBundle\views" />
-      <recent name="D:\6 - Work\00 - Esprit\3A\PI\ED+\www\Ed+\web\Back_assets" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\Ed+\src\UtilisateursBundle\Resources\views\FormViews" />
-      <recent name="C:\wamp64\www\Ed+\src\UtilisateursBundle\Resources\views" />
-      <recent name="C:\wamp64\www\Ed+\app\Resources\FOSUserBundle" />
-      <recent name="C:\wamp64\www\Ed+\app\Resources\FOSUserBundle\Resources" />
+      <recent name="C:\Users\FRINI\Desktop\PROJET WEB intergration\Ed+\src\BlocBundle" />
+      <recent name="C:\Users\FRINI\Desktop\PROJET WEB intergration\Ed+\app\Resources\views" />
+      <recent name="C:\Users\FRINI\Desktop\PROJET WEB intergration\Ed+\vendor\friendsofsymfony" />
+      <recent name="C:\Users\FRINI\Desktop\PROJET WEB intergration\Ed+\src\MailBundle" />
+      <recent name="C:\Users\FRINI\Desktop\PROJET WEB intergration\Ed+\src\GestionNiveauxBundle" />
     </key>
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="c dump-autoload" />
       <command value="friendsofsymfony/user-bundle &quot;~2.0&quot;" />
+      <command value="s doctrine:schema:update" />
+      <command value=" composer require vich/uploader-bundle " />
+      <command value="c require vich/uploader-bundle " />
+      <command value="s doctrine:generate:form ModuleChapitreCoursBundle:Cours" />
+      <command value="s doctrine:database:create" />
+      <command value="s server:start" />
+      <command value="s doctrine:generate:entity" />
+      <command value="s doctrine:generate:form" />
+      <command value="s doctrine:generate:form SaharBundle:Clubs" />
+      <command value="s doctrine:generate:form SaharBundle:Reclamations" />
+      <command value="s server:stop" />
+      <command value="s server:run" />
+      <command value="composer require knplabs/knp-paginator-bundle" />
+      <command value="php composer.phar require knplabs/knp-paginator-bundle" />
+      <command value="c require cmen/google-charts-bundle" />
+      <command value="s generate:controller" />
+      <command value="s generate:bundle" />
+      <command value="s doctrine:schema:update --force" />
     </option>
   </component>
   <component name="RunDashboard">
@@ -204,103 +179,41 @@
       <updated>1581351821747</updated>
       <workItem from="1581351822941" duration="1787000" />
       <workItem from="1581416050140" duration="7368000" />
-      <workItem from="1581456644054" duration="12716000" />
-      <workItem from="1581472445345" duration="5586000" />
-      <workItem from="1581519656642" duration="88000" />
-      <workItem from="1581519766332" duration="20179000" />
-      <workItem from="1581551432352" duration="8580000" />
-      <workItem from="1581587197631" duration="4363000" />
-      <workItem from="1581598720608" duration="511000" />
-      <workItem from="1581968847040" duration="11030000" />
-      <workItem from="1582022010867" duration="2762000" />
-      <workItem from="1582029079365" duration="13118000" />
-      <workItem from="1582042943589" duration="4320000" />
-      <workItem from="1582048558779" duration="6225000" />
-      <workItem from="1582056857472" duration="8923000" />
-      <workItem from="1582115696129" duration="6641000" />
-      <workItem from="1582130075945" duration="6490000" />
-      <workItem from="1582140027388" duration="6443000" />
-      <workItem from="1582147371076" duration="7884000" />
-      <workItem from="1582155733757" duration="10500000" />
-      <workItem from="1582189164941" duration="2915000" />
-      <workItem from="1582382638675" duration="14000" />
-      <workItem from="1582383016890" duration="11220000" />
-      <workItem from="1582394717667" duration="6451000" />
-      <workItem from="1582401575535" duration="797000" />
-      <workItem from="1582460961200" duration="3552000" />
-      <workItem from="1582464613307" duration="4192000" />
-      <workItem from="1582470668778" duration="7829000" />
-      <workItem from="1582574056532" duration="5461000" />
-      <workItem from="1582581544516" duration="9728000" />
-      <workItem from="1582660715342" duration="3401000" />
-      <workItem from="1582664370292" duration="316000" />
-      <workItem from="1582664720383" duration="5053000" />
-      <workItem from="1582720038834" duration="8051000" />
+      <workItem from="1581500216664" duration="25039000" />
+      <workItem from="1582464335055" duration="28637000" />
+      <workItem from="1582712291455" duration="8393000" />
+      <workItem from="1582720920864" duration="205000" />
+      <workItem from="1582721152000" duration="152000" />
+      <workItem from="1582721342281" duration="27446000" />
+      <workItem from="1582759684472" duration="1334000" />
+      <workItem from="1582761097896" duration="12431000" />
     </task>
-    <task id="LOCAL-00001" summary="tets">
-      <created>1582402127416</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1582402127417</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <ignored-roots>
-      <path value="$PROJECT_DIR$/EdPlus" />
-    </ignored-roots>
-    <MESSAGE value="tets" />
-    <option name="LAST_COMMIT_MESSAGE" value="tets" />
-  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="php-line-method">
-          <url>file://$PROJECT_DIR$/src/UtilisateursBundle/Entity/User.php</url>
-          <line>213</line>
-          <properties>
-            <option name="className" value="\UtilisateursBundle\Entity\User" />
-            <option name="methodName" value="__construct" />
-          </properties>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Security/login_content.html.twig</url>
+          <line>64</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/src/UtilisateursBundle/Controller/DefaultController.php</url>
-          <line>28</line>
+          <url>file://$PROJECT_DIR$/src/UtilisateursBundle/Resources/views/classe.html.twig</url>
+          <line>6</line>
           <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/src/UtilisateursBundle/Resources/views/etudiant.html.twig</url>
-          <line>50</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/ParameterBag/ParameterBag.php</url>
-          <line>101</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/vendor/knplabs/knp-paginator-bundle/Resources/views/Pagination/twitter_bootstrap_v3_pagination.html.twig</url>
-          <line>49</line>
-          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

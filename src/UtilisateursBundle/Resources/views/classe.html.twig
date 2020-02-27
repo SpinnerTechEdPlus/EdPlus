@@ -19,8 +19,10 @@
                     <thead>
                     <tr>
                         <th> # </th>
-                        <th> numero de classe </th>
-                        <th> nbr </th>
+                        <th> Nom </th>
+                        <th> Nombre Etudiant </th>
+                        <th> Examens</th>
+                        <th> Séances</th>
                         <th> Modifier </th>
                         <th> Supprimer </th>
                     </tr>
@@ -29,12 +31,17 @@
                     {% for classe in classes %}
                     <tr>
                         <td> {{ classe.id }} </td>
-                        <td> {{ classe.num}} </td>
+                        <td> {{ classe.nom}} </td>
 
                         <td>
                             {{classe.nbrEtudiant}}
                         </td>
-
+                        <td>  <a class="nav-link" href="/Classe/{{classe.id}}/Examens">         <i class="mdi mdi-call-made menu-icon"></i>
+                            </a>
+                            </li>		 </td>
+                        <td>  <a class="nav-link" href="/Classe/{{classe.id}}/Seances">         <i class="mdi mdi-call-made menu-icon"></i>
+                            </a>
+                            </li>		 </td>
                         <td>  <a class="nav-link" href="{{path('updateClasse',{'id': classe.id}) }}">         <i class="mdi mdi-border-color menu-icon"></i>
                             </a>
                             </li>		 </td>
@@ -49,7 +56,7 @@
                     {% endfor %}
                 </table>
 
-                <a class="nav-link" href="{{ path('createClasse') }}">
+                <a class="nav-link" href="/users/createClasse/{{ idniveau }}">
                     <button type="submit" class="btn btn-gradient-primary mr-2">Ajouter</button>
                 </a>
             </div>

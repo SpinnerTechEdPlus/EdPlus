@@ -33,7 +33,7 @@
                                     <select class="form-control" id="idProf" name="idProf">
                                         <option value="null" selected hidden>Professeur</option>
                                         {% for prof in professeurs %}
-                                        <option id="prof{{ prof.id }}" value="{{ prof.id }}">{{ prof.nom }}</option>
+                                        <option id="prof{{ prof.id }}" value="{{ prof.id }}">{{ prof.username }}</option>
                                         {% endfor %}
                                     </select>
                                 </div>
@@ -143,7 +143,7 @@
                                     <select class="form-control" id="EidProf" name="EidProf">
                                         <option value="null" selected hidden>Professeur</option>
                                         {% for prof in professeurs %}
-                                        <option id="Eprof{{ prof.id }}" value="{{ prof.id }}">{{ prof.nom }}</option>
+                                        <option id="Eprof{{ prof.id }}" value="{{ prof.id }}">{{ prof.username }}</option>
                                         {% endfor %}
                                     </select>
                                 </div>
@@ -282,7 +282,7 @@
                             <center><img src="{{ asset('Back_assets/assets/images/faces-clipart/pic-1.png') }}" alt="image"></center>
                         </td>
                         <td>
-                            <center>{{  seance.professeur.nom }}</center>
+                            <center>{{  seance.professeur.username }}</center>
                         </td>
                         <td>
                             <center>{{ seance.matiere.nom }}</center>

@@ -14,7 +14,7 @@ class ModuleController extends Controller
     {
 
         $em = $this->getDoctrine()->getManager();
-        $matiere = $em->getRepository(Matiere::class)->find($id);
+        $matiere = $em->getRepository(\GestionNiveauxBundle\Entity\matiere::class)->find($id);
         if (!($matiere)) {
             echo "not found";
         } else {

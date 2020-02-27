@@ -33,7 +33,7 @@ class etudiantType extends AbstractType
                 'first_options' => array('label' => 'password'),
                 'second_options' => array('label' => 'password_confirmation'),
                 'invalid_message' => 'fos_user.password.mismatch',
-            ))->add('classe')
+            ))->add('tel')->add('classe')
             ->add('ajouter',SubmitType::class,['attr' => ['class' => 'btn btn-gradient-primary mr-2'],]);
     }
 
