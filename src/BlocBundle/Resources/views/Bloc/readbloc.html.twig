@@ -5,7 +5,7 @@
         <h3 class="page-title">
                 <span class="page-title-icon bg-gradient-primary text-white mr-2">
                   <i class="mdi mdi-book"> </i>
-                </span> Block</h3>
+                </span> Salles</h3>
 
     </div>
 
@@ -16,11 +16,6 @@
         <tr>
             <th> Nom </th>
             <th> Nombre d'etages   </th>
-            <th> Etages   </th>
-            <th> Salles   </th>
-            <th> Supprimer   </th>
-            <th> Modifier  </th>
-            <th> Chercher   </th>
         </tr>
         {% for pr in bloc  %}
             <tr>
@@ -30,20 +25,6 @@
                 <td>
                     {{ pr.nbetages }}
                 </td>
-                <td>
-                    <a class="nav-link" href="{{ path('etages_read') }}">
-                        <i class="mdi mdi-call-made menu-icon"></i>
-                    </a>
-
-                </td>
-
-                <td>
-                    <a class="nav-link" href="{{ path('salle_read') }}">
-                        <i class="mdi mdi-call-made menu-icon"></i>
-                    </a>
-
-                </td>
-
 
                <td>
                     <a href="{{ path('bloc_delete', { 'id': pr.id }) }}"> Remove </a>

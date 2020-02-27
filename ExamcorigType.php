@@ -16,9 +16,10 @@ class ExamcorigType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('urlPdf',FileType::class)
+            ->add('matiere')
+            ->add('urlPdf',FileType::class, array('label' => 'Urlpdf(PDF File)'))
             ->add('ajouter',SubmitType::class) ;
-        ;
+
     }/**
      * {@inheritdoc}
      */

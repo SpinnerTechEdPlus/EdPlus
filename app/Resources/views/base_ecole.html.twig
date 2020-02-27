@@ -17,8 +17,8 @@
     <link rel="stylesheet" href="{{ asset('Back_assets/assets/css/style.css') }}">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="{{ asset('Back_assets/assets/images/favicon.png') }}" />
-
-
+    
+    
 </head>
 <body class="sidebar-icon-only">
 
@@ -97,8 +97,8 @@
                     </a>
                     <div class="collapse" id="ui-prof">
                         <ul class="nav flex-column sub-menu">
-                            {% block professeur %}<li class="nav-item"> <a class="nav-link" href="{{ path('professor_homepage') }}">Consulter</a></li>   {% endblock %}
-                            <li class="nav-item"> <a class="nav-link" href="{{ path('createProfesseur') }}">Ajouter</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="#">Consulter</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="#">Ajouter</a></li>
                         </ul>
                     </div>
                 </li>
@@ -111,8 +111,8 @@
                     </a>
                     <div class="collapse" id="ui-etu">
                         <ul class="nav flex-column sub-menu">
-                            {% block etudiant %}<li class="nav-item"> <a class="nav-link" href="{{ path('etudiant_homepage') }}">Consulter</a></li>   {% endblock %}
-                            <li class="nav-item"> <a class="nav-link" href="{{ path('createEtudiant') }}">Ajouter</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="#">Consulter</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="#">Ajouter</a></li>
                         </ul>
                     </div>
                 </li>
@@ -125,13 +125,25 @@
                     </a>
                     <div class="collapse" id="ui-niv">
                         <ul class="nav flex-column sub-menu">
-                            {% block niv %}<li class="nav-item"> <a class="nav-link" href="{{ path('niveau_homepage') }}">Consulter</a></li>   {% endblock %}
-                            <li class="nav-item"> <a class="nav-link" href="{{ path('createNiveau')}}">Ajouter </a></li>
+                           {% block niv %} <li class="nav-item"> <a class="nav-link" href="#">Consulter</a></li>{% endblock %}
+                            <li class="nav-item"> <a class="nav-link" href="#">Ajouter</a></li>
                         </ul>
                     </div>
                 </li>
 
-
+                <li class="nav-item active">
+                    <a class="nav-link" data-toggle="collapse" href="#ui-ex" aria-expanded="false" aria-controls="ui-basic">
+                        <span class="menu-title">Examens</span>
+                        <i class="menu-arrow"></i>
+                        <i class="mdi mdi-note menu-icon"></i>
+                    </a>
+                    <div class="collapse" id="ui-ex">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item"> <a class="nav-link" href="#">Consulter</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="#">Ajouter</a></li>
+                        </ul>
+                    </div>
+                </li>
 
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="collapse" href="#ui-bloc" aria-expanded="false" aria-controls="ui-basic">
@@ -141,8 +153,8 @@
                     </a>
                     <div class="collapse" id="ui-bloc">
                         <ul class="nav flex-column sub-menu">
-                            <li class="nav-item"> <a class="nav-link" href="{{ path('bloc_read')}}">Consulter</a></li>
-                            <li class="nav-item"> <a class="nav-link"href="{{ path('bloc_add')}}">Ajouter</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="#">Consulter</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="#">Ajouter</a></li>
                         </ul>
                     </div>
                 </li>
@@ -155,12 +167,11 @@
                     </a>
                     <div class="collapse" id="ui-club">
                         <ul class="nav flex-column sub-menu">
-                            <li class="nav-item"> <a class="nav-link" href="{{ path('saharafficheClubs')}}">Consulter</a></li>
-                            <li class="nav-item"> <a class="nav-link" href="{{ path('saharajoutClubs')}}">Ajouter</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="#">Consulter</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="#">Ajouter</a></li>
                         </ul>
                     </div>
                 </li>
-
 
 
 

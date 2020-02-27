@@ -1,11 +1,20 @@
-{% extends "base_ecole.html.twig" %}
-
-        {% block content %}
+{% extends "@Sahar/Default/index.html.twig" %}
+        {% block container %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+    <style>
+        #heading { color: #BA55D3; }
+    </style>
+</head>
 
             <div class="col-lg-12 stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h1 class="card-title text-center">Liste des Réclamations</h1>
+                        <h1  id="heading" class="card-title text-center">Liste des Réclamations</h1>
                         <!-- recherche-->
                         <div class="container">
                             <input class="form-control mb-4" id="tableSearch" type="text"
@@ -69,4 +78,5 @@
             <div class="navigation text-center">
                 {{ knp_pagination_render(Reclamations) }}
             </div>
+        </html>
         {% endblock %}

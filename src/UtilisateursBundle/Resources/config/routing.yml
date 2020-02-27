@@ -21,13 +21,6 @@ updateNiveau:
   defaults: { _controller: GestionNiveauxBundle:niveau:updateNiveau }
 
 
-searchNiveau:
-  path:     /searchNiveau
-  defaults: { _controller: GestionNiveauxBundle:niveau:searchNiveau }
-
-
-
-
 matiere_homepage:
   path:     ecole/matiere/{id}
   defaults: { _controller: GestionNiveauxBundle:matiere:matiere }
@@ -110,11 +103,6 @@ etudiant_search_classe:
 etudiant_search_ajax:
   path:     ecole/searchEtudiantAjax
   defaults: { _controller: UtilisateursBundle:Default:searchEtudiantAjax}
-
-
-
-
-
 
 
 

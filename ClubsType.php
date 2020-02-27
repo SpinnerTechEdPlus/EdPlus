@@ -18,7 +18,7 @@ class ClubsType extends AbstractType
             ->add('nom')
             ->add('organization')
             ->add('anneeCreation')
-            ->add('ajouter',SubmitType::class) ;
+            ->add('ajouter',SubmitType::class,array('label' => 'Ajouter')) ;
     }/**
      * {@inheritdoc}
      */

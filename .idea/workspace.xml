@@ -111,7 +111,7 @@
   <component name="PropertiesComponent">
     <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/BlocBundle" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -185,8 +185,6 @@
       <workItem from="1582720920864" duration="205000" />
       <workItem from="1582721152000" duration="152000" />
       <workItem from="1582721342281" duration="27446000" />
-      <workItem from="1582759684472" duration="1334000" />
-      <workItem from="1582761097896" duration="12431000" />
     </task>
     <servers />
   </component>
