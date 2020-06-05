@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="mainScreen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edplusdesktop.FXMLDocumentController">
+   <children>
+      <TabPane fx:id="mainTab" layoutX="320.0" layoutY="59.0" prefHeight="768.0" prefWidth="1366.0" stylesheets="@../edplusstyles/fullpackstyling.css" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+            <Tab fx:id="accueilTab" text="accueil">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="59.0" layoutY="123.0" mnemonicParsing="false" onMouseClicked="#goToAccueil" prefHeight="250.0" prefWidth="250.0" style="-fx-background-radius: 30 30 30 30;" />
+                        <Button layoutX="59.0" layoutY="412.0" mnemonicParsing="false" onMouseClicked="#goToNotes" prefHeight="250.0" prefWidth="250.0" style="-fx-background-radius: 30 30 30 30;" />
+                        <Button layoutX="391.0" layoutY="123.0" mnemonicParsing="false" onMouseClicked="#goToSeances" prefHeight="250.0" prefWidth="250.0" style="-fx-background-radius: 30 30 30 30;" />
+                        <Button layoutX="391.0" layoutY="412.0" mnemonicParsing="false" onMouseClicked="#goToReleve" prefHeight="250.0" prefWidth="250.0" style="-fx-background-radius: 30 30 30 30;" />
+                        <Button layoutX="721.0" layoutY="123.0" mnemonicParsing="false" onMouseClicked="#goToExams" prefHeight="250.0" prefWidth="250.0" style="-fx-background-radius: 30 30 30 30;" />
+                        <Button layoutX="721.0" layoutY="412.0" mnemonicParsing="false" onMouseClicked="#goToStats" prefHeight="250.0" prefWidth="250.0" style="-fx-background-radius: 30 30 30 30;" />
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="109.0" layoutY="173.0" onMouseClicked="#goToAccueil" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../edplusstyles/homeicon.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="441.0" layoutY="180.0" onMouseClicked="#goToSeances" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../edplusstyles/meeting.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="775.0" layoutY="180.0" onMouseClicked="#goToExams" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../edplusstyles/seanceicon.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="109.0" layoutY="462.0" onMouseClicked="#goToNotes" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../edplusstyles/notesicon.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="441.0" layoutY="462.0" onMouseClicked="#goToReleve" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../edplusstyles/releve.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="771.0" layoutY="462.0" onMouseClicked="#goToStats" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../edplusstyles/stats.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="statsTab" text="statTab">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <BarChart fx:id="barc" layoutX="62.0" layoutY="76.0" prefHeight="462.0" prefWidth="907.0">
+                          <xAxis>
+                            <CategoryAxis side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis side="LEFT" />
+                          </yAxis>
+                        </BarChart>
+                        <Button fx:id="updateBarChart" layoutX="102.0" layoutY="538.0" mnemonicParsing="false" onMouseClicked="#updateBarChart" prefHeight="100.0" prefWidth="855.0" />
+                        <ImageView fitHeight="90.0" fitWidth="94.0" layoutX="470.0" layoutY="543.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../edplusstyles/refresh.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="seancesTab" text="Séances">
+              <content>
+                <AnchorPane fx:id="seancesScreen" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="seancesContainer" layoutX="7.0" layoutY="202.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#seanceSelectionDetectedKey" onKeyReleased="#seanceSelectionDetectedKey" onKeyTyped="#seanceSelectionDetectedKey" onMouseClicked="#seanceSelectionDetected" prefHeight="465.0" prefWidth="1012.0">
+                           <columns>
+                              <TableColumn fx:id="seanceClasseIdColumn" maxWidth="0.0" minWidth="0.0" prefWidth="0.0" text="ClasseId" />
+                              <TableColumn fx:id="seanceProfesseurIdColumn" maxWidth="0.0" minWidth="0.0" prefWidth="0.0" text="ProfesseurId" />
+                              <TableColumn fx:id="seanceMatiereIdColumn" maxWidth="0.0" minWidth="0.0" prefWidth="0.0" text="MatiereId" />
+                              <TableColumn fx:id="seanceSalleIdColumn" maxWidth="0.0" minWidth="0.0" prefWidth="0.0" text="SalleId" />
+                              <TableColumn fx:id="seanceIdColumn" maxWidth="45.0" minWidth="45.0" prefWidth="45.0" text="Id" />
+                              <TableColumn fx:id="seanceSalleColumn" maxWidth="88.0" minWidth="88.0" prefWidth="88.0" text="Salle" />
+                              <TableColumn fx:id="seanceMatiereColumn" maxWidth="122.0" minWidth="122.0" prefWidth="122.0" text="Matiere" />
+                              <TableColumn fx:id="seanceProfesseurColumn" maxWidth="142.0" minWidth="142.0" prefWidth="142.0" text="Professeur" />
+                              <TableColumn fx:id="seanceClasseColumn" maxWidth="125.0" minWidth="125.0" prefWidth="125.0" text="Classe" />
+                              <TableColumn fx:id="seanceJourColumn" maxWidth="124.0" minWidth="124.0" prefWidth="124.0" text="Jour" />
+                              <TableColumn fx:id="seanceDebutColumn" maxWidth="181.0" minWidth="181.0" prefWidth="181.0" text="Debut" />
+                              <TableColumn fx:id="seanceFinColumn" maxWidth="183.0" minWidth="183.0" prefWidth="183.0" text="Fin" />
+                           </columns>
+                        </TableView>
+                        <Button fx:id="seanceDeleteButton" layoutX="872.0" layoutY="672.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#deleteSelectedSeance" prefHeight="25.0" prefWidth="147.0" text="Supprimer" />
+                        <Label layoutX="7.0" layoutY="78.0" text="Salle" />
+                        <ComboBox fx:id="seanceSalleComboBox" layoutX="76.0" layoutY="74.0" prefHeight="25.0" prefWidth="440.0" />
+                        <Label layoutX="7.0" layoutY="108.0" text="Matière" />
+                        <ComboBox fx:id="seanceMatiereComboBox" layoutX="76.0" layoutY="104.0" prefHeight="25.0" prefWidth="440.0" />
+                        <Label layoutX="7.0" layoutY="138.0" text="Professeur" />
+                        <ComboBox fx:id="seanceProfesseurComboBox" layoutX="76.0" layoutY="134.0" prefWidth="440.0" />
+                        <Label layoutX="7.0" layoutY="168.0" text="Classe" />
+                        <ComboBox fx:id="seanceClasseComboBox" layoutX="76.0" layoutY="164.0" prefWidth="440.0" />
+                        <Label layoutX="532.0" layoutY="80.0" text="Jour" />
+                        <edplusutils.TimeSpinner fx:id="seanceDebutSpinner" layoutX="579.0" layoutY="104.0" prefHeight="25.0" prefWidth="440.0" />
+                        <Label layoutX="532.0" layoutY="110.0" text="Début" />
+                        <Label layoutX="532.0" layoutY="140.0" text="Fin" />
+                        <edplusutils.TimeSpinner fx:id="seanceFinSpinner" layoutX="579.0" layoutY="134.0" prefHeight="25.0" prefWidth="440.0" />
+                        <Button fx:id="seanceUpdateButton" layoutX="845.0" layoutY="166.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#updateSeances" prefHeight="25.0" prefWidth="174.0" text="Ajouter" />
+                        <Button fx:id="addNewSeanceDecision" layoutX="827.0" layoutY="672.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#addNewSeanceDecisionMaked" prefHeight="25.0" prefWidth="37.0" text="+" />
+                        <TextField fx:id="seanceIdTextField" layoutX="678.0" layoutY="136.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="0.0" prefWidth="0.0" />
+                        <DatePicker fx:id="seanceJourDatePicker" layoutX="579.0" layoutY="74.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="440.0" />
+                        <TextField fx:id="searchSeancesTextField" layoutX="161.0" layoutY="672.0" onAction="#applySearchedSeances" prefHeight="25.0" prefWidth="658.0" />
+                        <Button fx:id="shutDown1" layoutX="7.0" layoutY="672.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="22.0" minWidth="22.0" mnemonicParsing="false" onAction="#shutDown" prefHeight="25.0" prefWidth="147.0" stylesheets="@../edplusstyles/fullpackstyling.css" text="Quitter" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+          <Tab fx:id="examenTab" text="Examen">
+            <content>
+              <AnchorPane fx:id="examenScreen" minHeight="0.0" minWidth="0.0" prefHeight="717.0" prefWidth="1384.0">
+                     <children>
+                        <TableView fx:id="examensContainer" layoutX="7.0" layoutY="202.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#examenSelectionDetectedKey" onKeyReleased="#examenSelectionDetectedKey" onKeyTyped="#examenSelectionDetectedKey" onMouseClicked="#examenSelectionDetected" prefHeight="465.0" prefWidth="1012.0">
+                          <columns>
+                              <TableColumn fx:id="examenClasseIdColumn" maxWidth="0.0" minWidth="0.0" prefWidth="0.0" text="ClasseId" />
+                              <TableColumn fx:id="examenMatiereIdColumn" maxWidth="0.0" minWidth="0.0" prefWidth="0.0" text="MatiereId" />
+                              <TableColumn fx:id="examenSalleIdColumn" maxWidth="0.0" minWidth="0.0" prefWidth="0.0" text="SalleId" />
+                              <TableColumn fx:id="examenIdColumn" maxWidth="45.0" minWidth="45.0" prefWidth="45.0" text="Id" />
+                              <TableColumn fx:id="examenSalleColumn" maxWidth="88.0" minWidth="88.0" prefWidth="88.0" text="Salle" />
+                            <TableColumn fx:id="examenMatiereColumn" maxWidth="125.0" minWidth="125.0" prefWidth="125.0" text="Matiere" />
+                              <TableColumn fx:id="examenClasseColumn" maxWidth="133.0" minWidth="133.0" prefWidth="133.0" text="Classe" />
+                              <TableColumn fx:id="examenHoraireColumn" maxWidth="303.0" minWidth="303.0" prefWidth="303.0" text="Horaire" />
+                            <TableColumn fx:id="examenSemestreColumn" maxWidth="316.0" minWidth="316.0" prefWidth="316.0" styleClass="table-view" text="Semestre" />
+                          </columns>
+                        </TableView>
+                        <Button fx:id="examenDeleteButton" layoutX="872.0" layoutY="672.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#deleteSelectedExamen" prefHeight="25.0" prefWidth="147.0" text="Supprimer" />
+                        <Button fx:id="shutDown2" layoutX="7.0" layoutY="672.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="22.0" minWidth="22.0" mnemonicParsing="false" onAction="#shutDown" prefHeight="25.0" prefWidth="147.0" text="Quitter" />
+                        <Label layoutX="7.0" layoutY="78.0" text="Salle" />
+                        <ComboBox fx:id="examenSalleComboBox" layoutX="76.0" layoutY="74.0" prefHeight="25.0" prefWidth="440.0" styleClass="combo-box" />
+                        <Label layoutX="7.0" layoutY="108.0" text="Matière" />
+                        <ComboBox fx:id="examenMatiereComboBox" layoutX="76.0" layoutY="104.0" prefHeight="25.0" prefWidth="440.0" />
+                        <Label layoutX="7.0" layoutY="138.0" text="Classe" />
+                        <ComboBox fx:id="examenClasseComboBox" layoutX="76.0" layoutY="134.0" prefWidth="440.0" />
+                        <Label layoutX="525.0" layoutY="80.0" text="Jour" />
+                        <edplusutils.TimeSpinner fx:id="examenTempsSpinner" layoutX="579.0" layoutY="105.0" prefHeight="25.0" prefWidth="440.0" />
+                        <Label layoutX="525.0" layoutY="110.0" text="Temps" />
+                        <Button fx:id="examenUpdateButton" layoutX="845.0" layoutY="166.0" mnemonicParsing="false" onMouseClicked="#updateExamens" prefHeight="25.0" prefWidth="174.0" text="Ajouter" />
+                        <Button fx:id="addNewExamenDecision" layoutX="827.0" layoutY="672.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#addNewExamenDecisionMaked" prefHeight="25.0" prefWidth="37.0" text="+" />
+                        <Label layoutX="525.0" layoutY="138.0" text="Semestre" />
+                        <TextField fx:id="examenIdTextField" layoutX="69.0" layoutY="149.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="0.0" prefWidth="0.0" />
+                        <DatePicker fx:id="examenJourDatePicker" layoutX="579.0" layoutY="76.0" prefHeight="25.0" prefWidth="440.0" />
+                        <ComboBox fx:id="examenSemestreComboBox" layoutX="579.0" layoutY="134.0" prefWidth="440.0" />
+                        <TextField fx:id="searchExamensTextField" layoutX="161.0" layoutY="672.0" onAction="#applySearchedExamens" prefHeight="25.0" prefWidth="658.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="notesTab" text="Notes">
+            <content>
+              <AnchorPane fx:id="notesScreen" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="notesContainer" layoutX="7.0" layoutY="202.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#noteSelectionDetectedKey" onKeyReleased="#noteSelectionDetectedKey" onKeyTyped="#noteSelectionDetectedKey" onMouseClicked="#noteSelectionDetected" prefHeight="465.0" prefWidth="1012.0">
+                          <columns>
+                              <TableColumn fx:id="noteEtudiantIdColumn" maxWidth="0.0" minWidth="0.0" prefWidth="0.0" text="etudiantId" />
+                              <TableColumn fx:id="noteExamenIdColumn" maxWidth="0.0" minWidth="0.0" prefWidth="0.0" text="examenId" />
+                              <TableColumn fx:id="noteIdColumn" maxWidth="45.0" minWidth="45.0" prefWidth="45.0" text="Id" />
+                            <TableColumn fx:id="noteEtudiantColumn" maxWidth="320.0" minWidth="320.0" prefWidth="320.0" text="Etudiant" />
+                            <TableColumn fx:id="noteExamenColumn" maxWidth="327.0" minWidth="327.0" prefWidth="327.0" text="Examen" />
+                              <TableColumn fx:id="noteNoteColumn" maxWidth="318.0" minWidth="4.0" prefWidth="318.0" text="Note" />
+                          </columns>
+                        </TableView>
+                        <Button fx:id="shutDown3" layoutX="7.0" layoutY="672.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="22.0" minWidth="22.0" mnemonicParsing="false" onAction="#shutDown" prefHeight="25.0" prefWidth="147.0" text="Quitter" />
+                        <Button fx:id="noteDeleteButton" layoutX="872.0" layoutY="672.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#deleteSelectedNote" prefHeight="25.0" prefWidth="147.0" text="Supprimer" />
+                        <Label layoutX="7.0" layoutY="78.0" text="Examen" />
+                        <ComboBox fx:id="noteExamenComboBox" layoutX="75.0" layoutY="74.0" prefHeight="25.0" prefWidth="943.0" />
+                        <Label layoutX="7.0" layoutY="108.0" text="Etudiant" />
+                        <ComboBox fx:id="noteEtudiantComboBox" layoutX="75.0" layoutY="104.0" prefHeight="27.0" prefWidth="943.0" />
+                        <Label layoutX="7.0" layoutY="140.0" text="Note" />
+                        <Button fx:id="noteUpdateButton" layoutX="845.0" layoutY="166.0" mnemonicParsing="false" onMouseClicked="#updateNotes" prefHeight="25.0" prefWidth="174.0" text="Ajouter" />
+                        <Button fx:id="addNewNoteDecision" layoutX="827.0" layoutY="672.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#addNewNoteDecisionMaked" prefHeight="25.0" prefWidth="37.0" text="+" />
+                        <Spinner fx:id="noteNoteSpinner" editable="true" layoutX="75.0" layoutY="136.0" prefHeight="25.0" prefWidth="943.0" />
+                         
+                        <TextField fx:id="noteIdTextField" layoutX="86.0" layoutY="159.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="0.0" prefWidth="0.0" />
+                        <TextField fx:id="searchNotesTextField" layoutX="161.0" layoutY="672.0" onAction="#applySearchedNotes" prefHeight="25.0" prefWidth="658.0" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+            <Tab fx:id="releveTab" text="Releve">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label fx:id="labeletudiant" layoutX="151.0" layoutY="257.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="73.0" prefWidth="201.0" text="Etudiant">
+                           <font>
+                              <Font size="50.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="releveEtudiantComboBox" layoutX="386.0" layoutY="270.0" prefHeight="48.0" prefWidth="472.0" />
+                        <Button fx:id="getReleveButton" layoutX="151.0" layoutY="353.0" mnemonicParsing="false" onMouseClicked="#saveReleve" prefHeight="134.0" prefWidth="702.0">
+                           <font>
+                              <Font size="47.0" />
+                           </font>
+                        </Button>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="427.0" layoutY="352.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../edplusstyles/releve.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+         <styleClass>
+            <String fx:value="tab-pane" />
+            <String fx:value="tab-header-area" />
+         </styleClass>
+      </TabPane>
+      <HBox layoutY="-2.0" prefHeight="780.0" prefWidth="300.0" style="-fx-background-color: #0a8adf; -fx-background-radius: 0  85 0 0;" />
+      <Button fx:id="accueilButton" layoutY="252.0" mnemonicParsing="false" onMouseClicked="#goToAccueil" prefHeight="55.0" prefWidth="300.0" stylesheets="@../edplusstyles/fullpackstyling.css" text="Accueil">
+         <font>
+            <Font name="System Italic" size="20.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="77.0" fitWidth="32.0" layoutX="39.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../edplusstyles/homeicon.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="gererSeanceButton" layoutY="312.0" mnemonicParsing="false" onMouseClicked="#goToSeances" prefHeight="55.0" prefWidth="300.0" stylesheets="@../edplusstyles/fullpackstyling.css" text="              Gérer les séances">
+         <font>
+            <Font name="System Italic" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="gererExamsButton" layoutY="372.0" mnemonicParsing="false" onMouseClicked="#goToExams" prefHeight="55.0" prefWidth="300.0" stylesheets="@../edplusstyles/fullpackstyling.css" text="               Gérer les examens">
+         <font>
+            <Font name="System Italic" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="gererNotesButtons" layoutY="432.0" mnemonicParsing="false" onMouseClicked="#goToNotes" prefHeight="55.0" prefWidth="300.0" stylesheets="@../edplusstyles/fullpackstyling.css" text="          Gérer les notes">
+         <font>
+            <Font name="System Italic" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="releveNoteButton" layoutY="492.0" mnemonicParsing="false" onMouseClicked="#goToReleve" prefHeight="55.0" prefWidth="300.0" stylesheets="@../edplusstyles/fullpackstyling.css" text="           Relevé de notes">
+         <font>
+            <Font name="System Italic" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="statsButton" layoutY="552.0" mnemonicParsing="false" onMouseClicked="#goToStats" prefHeight="55.0" prefWidth="300.0" stylesheets="@../edplusstyles/fullpackstyling.css" text="    Statistiques">
+         <font>
+            <Font name="System Italic" size="20.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="77.0" fitWidth="32.0" layoutX="39.0" layoutY="323.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../edplusstyles/meeting.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="78.0" layoutY="739.0" text="Copyright 2020 - Spinner Technoplogies" textFill="WHITE">
+         <font>
+            <Font size="7.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="77.0" fitWidth="32.0" layoutX="41.0" layoutY="383.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../edplusstyles/seanceicon.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="77.0" fitWidth="32.0" layoutX="38.0" layoutY="443.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../edplusstyles/notesicon.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="77.0" fitWidth="32.0" layoutX="39.0" layoutY="503.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../edplusstyles/releve.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="201.0" fitWidth="214.0" layoutX="43.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../edplusstyles/logoimg.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="77.0" fitWidth="32.0" layoutX="40.0" layoutY="563.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../edplusstyles/stats.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="mainLabel" layoutX="450.0" layoutY="41.0" prefHeight="56.0" prefWidth="663.0" stylesheets="@../edplusstyles/fullpackstyling.css" text="Accueil">
+         <font>
+            <Font size="39.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="mainImage" fitHeight="84.0" fitWidth="159.0" layoutX="339.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../edplusstyles/homeiconblue.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="1312.0" layoutY="18.0" mnemonicParsing="false" onAction="#shutDown" prefHeight="30.0" prefWidth="30.0" styleClass="button1" stylesheets="@../edplusstyles/fullpackstyling.css" text="X">
+         <font>
+            <Font name="Berlin Sans FB" size="9.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
