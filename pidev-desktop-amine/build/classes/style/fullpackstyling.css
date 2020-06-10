@@ -1,0 +1,250 @@
+.button1
+{
+    -fx-background-radius : 28px;
+    -fx-background-color : transparent;
+    -fx-border-color: #2F0743;
+    -fx-border-radius: 28px;
+    -fx-border-width:3;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2F0743;
+    -fx-font-size:16;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0.0, 0.0);
+}
+.button1:hover
+{
+    -fx-background-color : #2F0743;
+    -fx-text-fill: #ffffff;
+    -fx-background-radius : 28px;
+    -fx-font-weight: bold;
+    -fx-font-size:16;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0.0, 0.0);
+
+
+
+}
+.button1:pressed
+{
+    -fx-background-color : #b893cc;
+    -fx-text-fill: #000000;
+    -fx-background-radius :  28px;
+}
+
+.button2
+{
+    -fx-background-radius : 28px;
+    -fx-background-color : #451b52;
+    -fx-font-weight: bold;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size:16;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0.0, 0.0);
+}
+.button2:hover
+{
+    -fx-background-color : #944da3 ;
+    -fx-background-radius :  20;
+}
+.button2:pressed
+{
+    -fx-background-color : #2F2B43 ;
+    -fx-background-radius :  20;
+}
+
+.button3
+{
+    -fx-background-color : #141124;
+    -fx-background-radius :  0 0 0 0;
+}
+.button3:hover
+{
+    -fx-background-color : #524A7B ;
+}
+.button3:pressed
+{
+    -fx-background-color : #2F2B43 ;
+}
+
+.button4
+{
+    -fx-background-color :linear-gradient(to top left, #41951C, #D4CEE3);
+    -fx-background-radius :  30 30 30 30;
+}
+.button4:hover
+{
+    -fx-background-color :linear-gradient(to top left, #D4CEE3, #41951C);
+    -fx-background-radius :  30 30 30 30;
+}
+.button4:pressed
+{
+    -fx-background-color :linear-gradient(to top left, #41951C, #D4CEE3);
+    -fx-background-radius :  30 30 30 30;
+}
+
+
+.combo-box
+{
+    -fx-background-color : #ffffff;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-text-fill: #451b52
+
+}
+.combo-box:hover
+{
+    -fx-effect: dropshadow(gaussian, rgba(60, 15, 77, 0.4), 10, 0.5, 0.0, 0.0);
+}
+.combo-box:pressed
+{
+    -fx-background-color : #ffffff;
+    -fx-effect: dropshadow(gaussian, rgba(60, 15, 77, 0.4), 10, 0.5, 0.0, 0.0);
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+
+}
+
+.table-view .column-header,
+.table-view .column-header-background .filler {
+    -fx-cell-size : 20;
+    -fx-background-color:  #2F0743;
+}
+.table-viewf .column-header,
+.table-viewf .column-header-background .filler {
+    -fx-cell-size : 20;
+    -fx-background-color:  #812594;
+}
+.table-view .column-header .label{
+
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER;
+}
+
+.table-view .cell{
+    -fx-cell-size: 30;
+    -fx-alignment: center-left;
+    -fx-text-fill: #2F0743;
+}
+
+.table-row-cell:selected {
+    -fx-background-color:  rgb(127, 172, 243);
+}
+.table-row-cell:selected .text {
+    -fx-fill : white ;
+
+}
+
+.table-row-cell:odd {
+    -fx-background-color:#D4CEE3;
+    -fx-alignment: CENTER;
+}
+
+.table-row-cell:even {
+    -fx-background-color:#b893cc ;
+    -fx-alignment: CENTER;
+}
+/* scroll bar starts here */
+
+/* The increment and decrement button CSS class of scrollbar */
+.table-view .increment-button ,.table-view .decrement-button {
+    -fx-background-color:transparent;
+    -fx-background-radius: 2em;
+
+}
+
+/* The main scrollbar **track** CSS class  */
+.table-view .scroll-bar:horizontal .track,
+.table-view .scroll-bar:vertical .track{
+    -fx-background-color: transparent;
+    -fx-border-color:derive(  #2D75E8,80%);
+    -fx-background-radius: 2em;
+    -fx-border-radius:2em;
+}
+
+/* The main scrollbar **thumb** CSS class which we drag every time (movable) */
+.table-view .scroll-bar:horizontal .thumb,
+.table-view .scroll-bar:vertical .thumb {
+    -fx-background-color:derive( #2D75E8,90%);
+    -fx-background-insets: 2, 0, 0;
+    -fx-background-radius: 2em;
+
+}
+
+/* chart properties */
+
+.chart {
+    -fx-padding: 10px;
+    -fx-background-color: transparent;
+    -fx-legend-visible: false;
+}
+.chart-plot-background {
+    -fx-background-color:transparent;
+}
+
+.chart-pie {
+    -fx-border-color: derive(-fx-pie-color, 1%);
+    -fx-border-width: 0px;
+}
+.linear-grad
+{
+    -fx-background-color: linear-gradient(to bottom left, #9D50BB, #6E48AA);
+}
+
+.textarea .content .text-area
+{
+    -fx-background-color: #524A7B;
+    -fx-background-radius: 30px;
+    -fx-border-color: transparent;
+    -fx-highlight-fill: #2D75E8;
+}
+
+
+.pane
+{
+    -fx-background-radius : 20px;
+    -fx-background-color : #ffffff;
+    -fx-font-weight: bold;
+    -fx-text-fill: 451b52;
+    -fx-font-size:16;
+    -fx-effect: dropshadow(gaussian, rgba(145, 47, 161, 0.3), 20, 0.7, 0.0, 0.0);
+}
+
+
+.inputa:hover
+{
+    -fx-effect: dropshadow(gaussian, rgba(60, 15, 77, 0.4), 10, 0.5, 0.0, 0.0);
+}
+
+.inputa:selected
+{
+    -fx-effect: dropshadow(gaussian, rgba(60, 15, 77, 0.4), 10, 0.5, 0.0, 0.0);
+}
+
+
+
+
+/*  COMBO BOX OF PRUPLE MISTAAAAAAAAAA BENIEZ */
+.combo-box2
+{
+    -fx-background-color : #451b52;
+    -fx-border-color:  #515658;
+    -fx-text-fill: #ffffff;
+}
+.combo-box2 .cell:selected {
+    -fx-text-fill: #ffffff;
+    -fx-background-color : #451b52;
+}
+.combo-box2 .cell {
+    -fx-background-color : #451b52;
+    -fx-text-fill: #ffffff;
+}
+.combo-box2:hover
+{
+    -fx-background-color : #451b52;
+    -fx-border-color:  #FFFF;
+    -fx-border-radius: 30;
+}
+.combo-box2:pressed
+{
+    -fx-background-color : #141124;
+    -fx-border-color:  #FFFF;
+}
+/*  COMBO BOX OF PRUPLE MISTAAAAAAAAAA BENIEZ */
