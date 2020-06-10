@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="stage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="1050.0" style="-fx-background-color: #02030A;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.HomeController">
+   <children>
+      <VBox alignment="TOP_CENTER" prefHeight="576.0" prefWidth="256.0" style="-fx-background-color: #DCDCDC;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="114.0" fitWidth="158.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/logo/Image1.png" />
+               </image>
+               <VBox.margin>
+                  <Insets bottom="10.0" top="50.0" />
+               </VBox.margin></ImageView>
+            <Label text="ED PLUS">
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Poppins Light" size="30.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnHome" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#GoHome" prefHeight="42.0" prefWidth="237.0" styleClass="button1" stylesheets="@../style/style.css" text="Accueil" textFill="#e7e5e5">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons/icons8_Home_32px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+            <Button fx:id="btnProf" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#GoProf" prefHeight="42.0" prefWidth="237.0" styleClass="button1" stylesheets="@../style/style.css" text="Professeurs">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons/icons8_Person_32px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+            <Button fx:id="btnEtudiant" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#GoEtudiant" prefHeight="42.0" prefWidth="237.0" styleClass="button1" stylesheets="@../style/fullpackstyling.css" text="Etudiants">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons/icons8_Person_32px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+            <Button fx:id="BtnNiveau" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#GoNiveau" prefHeight="42.0" prefWidth="237.0" styleClass="button1" stylesheets="@../style/style.css" text="Niveaux">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons/icons8_Xbox_Menu_32px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+            <Button fx:id="btnClasse" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#GoClasse" prefHeight="42.0" prefWidth="237.0" styleClass="button1" stylesheets="@../style/style.css" text="Classes">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons/icons8_Xbox_Menu_32px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+            <Button fx:id="btnMatieres" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="20.0" layoutY="415.0" mnemonicParsing="false" onAction="#GoMatiere" prefHeight="42.0" prefWidth="237.0" styleClass="button1" stylesheets="@../style/style.css" text="Matières">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons/icons8_Xbox_Menu_32px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+            <Button fx:id="btnSignout" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#GoLogout" prefHeight="42.0" prefWidth="237.0" styleClass="button1" stylesheets="@../style/style.css" text="Se déconnecter">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons/icons8_Sign_Out_32px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+         </children>
+         <stylesheets>
+            <URL value="@../style/fullpackstyling.css" />
+            <URL value="@../style/style.css" />
+         </stylesheets>
+      </VBox>
+      <StackPane layoutX="258.0" prefHeight="576.0" prefWidth="793.0" styleClass="linear-grad">
+         <children>
+            <Pane fx:id="pnlOverview" prefHeight="554.0" prefWidth="793.0">
+               <children>
+                  <ScrollPane layoutX="14.0" layoutY="208.0" prefHeight="321.0" prefWidth="747.0" styleClass="button1">
+                     <content>
+                        <Label prefHeight="313.0" prefWidth="741.0" text="                                                             en cours de construction" />
+                     </content></ScrollPane>
+               </children>
+               <stylesheets>
+                  <URL value="@../style/style.css" />
+                  <URL value="@../style/fullpackstyling.css" />
+               </stylesheets>
+            </Pane>
+         </children>
+         <stylesheets>
+            <URL value="@../style/fullpackstyling.css" />
+            <URL value="@../style/style.css" />
+         </stylesheets>
+      </StackPane>
+   </children>
+   <effect>
+      <DropShadow color="#1b1eeb" />
+   </effect>
+</AnchorPane>
