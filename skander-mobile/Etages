@@ -1,0 +1,52 @@
+package Entities;
+
+/**
+ *
+ * @author tibh
+ */
+public class Etages
+   private int nbsalle;
+   private int id;
+   private int numero;
+   
+   
+    public Etages() {
+    }
+
+    public Etages(int nbsalle, int numero ) {
+        this.nbsalle = nbsalle;
+        this.numero = numero;
+       
+	   
+	   public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+	
+	   public int getnumero() {
+        return numero;
+    }
+
+    public void setnumero(int numero) {
+        this.numero = numero;
+    }
+	
+	
+	  public int getnbsalle() {
+        return nbsalle;
+    }
+
+    public void setnbsalle(int nbsalle) {
+        this.nbsalle = nbsalle;
+    }
+	
+	 @Override
+    public String toString() {
+        return "Etages{" id=" + id + ", numero=" + numero + ",  nbsalle=" + nbsalle + '}';
+    }
+	
+	
+	

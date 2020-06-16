@@ -1,0 +1,115 @@
+package Services;
+
+import Entities.Salle;
+
+
+
+
+
+public class SalleService {
+      public ArrayList<Salle> salle;
+     
+    public static SalleService instance=null;
+    public boolean resultOK;
+    private ConnectionRequest req;
+
+    private SalleService() {
+         req = new ConnectionRequest();
+    }
+
+    public static SalleService getInstance() {
+        if (instance == null) {
+            instance = new SalleService();
+        }
+        return instance;
+    }
+	
+	
+	public ArrayList<Salle> getAllSalle
+	(){
+        
+        String url = BASE_URL+"SalleList";
+        req.setUrl(url);
+        
+        req.addResponseListener(new ActionListener<NetworkEvent>() {
+            @Override
+            public void actionPerformed(NetworkEvent evt) {
+                Etages = parseBlocList(new String(req.getResponseData()));
+                req.removeResponseListener(this);
+            }
+        });
+        NetworkManager.getInstance().addToQueueAndWait(req);
+        
+        return Salle;
+    }
+	
+	
+	
+	public Salle add(Salle salle) {
+
+        ConnectionRequest r = new ConnectionRequest();
+        r.setPost(true);
+        r.setHttpMethod("GET");
+        r.setUrl(BASE_URL+"add_salle");
+        r.addArgument("numero", salle.getNumero());
+        InfiniteProgress prog = new InfiniteProgress();
+        Dialog dlg = prog.showInifiniteBlocking();
+        r.setDisposeOnCompletion(dlg);
+        NetworkManager.getInstance().addToQueueAndWait(r);
+         Salle s = new Salle();
+        try {
+            Map<String, Object> obj = (Map<String, Object>) new JSONParser().parseJSON(
+                    new InputStreamReader(new ByteArrayInputStream(r.getResponseData()), "UTF-8"));
+
+         
+                
+                
+                float id = Float.parseFloat(obj.get("id").toString());
+                s.setId((int)id);
+                
+                
+                s.setNumero(obj.get("numero").toString());
+                
+                
+           
+            
+        } catch (IOException ex) {
+           
+        }
+return s;
+    }
+	
+	
+	 public boolean modifySalle(Salle s)
+     {
+       String url = BASE_URL+"modify_salle/"+s.getId()+"/"+s.getNumero();
+        req.setUrl(url);
+        req.addResponseListener(new ActionListener<NetworkEvent>() {
+            @Override
+            public void actionPerformed(NetworkEvent evt) {
+                resultOK = req.getResponseCode() == 200; //Code HTTP 200 OK
+                req.removeResponseListener(this);
+            }
+        });
+        NetworkManager.getInstance().addToQueueAndWait(req);
+        return resultOK;
+     
+     }
+}
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

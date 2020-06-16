@@ -1,0 +1,52 @@
+package Entities;
+
+/**
+ *
+ * @author tibh
+ */
+public class Bloc
+   private int nbetages;
+   private int id;
+   private String nom;
+   
+   
+    public Bloc() {
+    }
+
+    public Bloc(int nbetages, String nom ) {
+        this.nbetages = nbetages;
+        this.nom = nom;
+       
+	   
+	   public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+	
+	   public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+	
+	
+	  public String getnbetages() {
+        return nbetages;
+    }
+
+    public void setnbetages(String nbetages) {
+        this.nbetages = nbetages;
+    }
+	
+	 @Override
+    public String toString() {
+        return "Animal{" + "debutSaison=" + debutSaison + ", finSaison=" + finSaison + ", id=" + id + ", nom=" + nom + ",  nbetages=" + nbetages + '}';
+    }
+	
+	
+	

@@ -1,0 +1,115 @@
+package Services;
+
+import Entities.Etages;
+
+
+
+
+
+public class EtagesService {
+      public ArrayList<Etages> etages;
+     
+    public static EtagesService instance=null;
+    public boolean resultOK;
+    private ConnectionRequest req;
+
+    private EtagesService() {
+         req = new ConnectionRequest();
+    }
+
+    public static EtagesService getInstance() {
+        if (instance == null) {
+            instance = new EtagesService();
+        }
+        return instance;
+    }
+	
+	
+	public ArrayList<Etages> getAllEtages(){
+        
+        String url = BASE_URL+"EtagesList";
+        req.setUrl(url);
+        
+        req.addResponseListener(new ActionListener<NetworkEvent>() {
+            @Override
+            public void actionPerformed(NetworkEvent evt) {
+                Etages = parseBlocList(new String(req.getResponseData()));
+                req.removeResponseListener(this);
+            }
+        });
+        NetworkManager.getInstance().addToQueueAndWait(req);
+        
+        return Etages;
+    }
+	
+	
+	
+	public Etages add(Etages etages) {
+
+        ConnectionRequest r = new ConnectionRequest();
+        r.setPost(true);
+        r.setHttpMethod("GET");
+        r.setUrl(BASE_URL+"add_etages");
+        r.addArgument("numero", etages.getNumero());
+        r.addArgument("nbsalle", Integer.toString(etages.getNbsalle()));
+        InfiniteProgress prog = new InfiniteProgress();
+        Dialog dlg = prog.showInifiniteBlocking();
+        r.setDisposeOnCompletion(dlg);
+        NetworkManager.getInstance().addToQueueAndWait(r);
+         Etages e = new Etages();
+        try {
+            Map<String, Object> obj = (Map<String, Object>) new JSONParser().parseJSON(
+                    new InputStreamReader(new ByteArrayInputStream(r.getResponseData()), "UTF-8"));
+
+         
+                
+                
+                float id = Float.parseFloat(obj.get("id").toString());
+                a.setId((int)id);
+                
+                
+                b.setNumero(obj.get("numero").toString());
+                b.setNbsalle(obj.get("nbsalle").toString());
+                
+           
+            
+        } catch (IOException ex) {
+           
+        }
+return e;
+    }
+	
+	
+	 public boolean modifyEtages(Etages e)
+     {
+       String url = BASE_URL+"modify_etages/"+e.getId()+"/"+e.getNbsalle()+"/"+e.getNumero();
+        req.setUrl(url);
+        req.addResponseListener(new ActionListener<NetworkEvent>() {
+            @Override
+            public void actionPerformed(NetworkEvent evt) {
+                resultOK = req.getResponseCode() == 200; //Code HTTP 200 OK
+                req.removeResponseListener(this);
+            }
+        });
+        NetworkManager.getInstance().addToQueueAndWait(req);
+        return resultOK;
+     
+     }
+}
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

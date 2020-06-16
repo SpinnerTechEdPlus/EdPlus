@@ -1,0 +1,115 @@
+package Services;
+
+import Entities.Bloc;
+
+
+
+
+
+public class BlocService {
+      public ArrayList<Bloc> blocs;
+     
+    public static BlocService instance=null;
+    public boolean resultOK;
+    private ConnectionRequest req;
+
+    private BlocService() {
+         req = new ConnectionRequest();
+    }
+
+    public static BlocService getInstance() {
+        if (instance == null) {
+            instance = new BlocService();
+        }
+        return instance;
+    }
+	
+	
+	public ArrayList<Bloc> getAllBlocs(){
+        
+        String url = BASE_URL+"BlocsList";
+        req.setUrl(url);
+        
+        req.addResponseListener(new ActionListener<NetworkEvent>() {
+            @Override
+            public void actionPerformed(NetworkEvent evt) {
+                Blocs = parseBlocList(new String(req.getResponseData()));
+                req.removeResponseListener(this);
+            }
+        });
+        NetworkManager.getInstance().addToQueueAndWait(req);
+        
+        return Blocs;
+    }
+	
+	
+	
+	public Bloc add(Bloc bloc) {
+
+        ConnectionRequest r = new ConnectionRequest();
+        r.setPost(true);
+        r.setHttpMethod("GET");
+        r.setUrl(BASE_URL+"add_bloc");
+        r.addArgument("nom", bloc.getNom());
+        r.addArgument("nbetages", Integer.toString(bloc.getNbetages()));
+        InfiniteProgress prog = new InfiniteProgress();
+        Dialog dlg = prog.showInifiniteBlocking();
+        r.setDisposeOnCompletion(dlg);
+        NetworkManager.getInstance().addToQueueAndWait(r);
+         Bloc b = new Bloc();
+        try {
+            Map<String, Object> obj = (Map<String, Object>) new JSONParser().parseJSON(
+                    new InputStreamReader(new ByteArrayInputStream(r.getResponseData()), "UTF-8"));
+
+         
+                
+                
+                float id = Float.parseFloat(obj.get("id").toString());
+                a.setId((int)id);
+                
+                
+                b.setNom(obj.get("nom").toString());
+                b.setNbetages(obj.get("nbetages").toString());
+                
+           
+            
+        } catch (IOException ex) {
+           
+        }
+return b;
+    }
+	
+	
+	 public boolean modifyBloc(Bloc b)
+     {
+       String url = BASE_URL+"modify_animal/"+b.getId()+"/"+b.getNbetages()+"/"+b.getNom();
+        req.setUrl(url);
+        req.addResponseListener(new ActionListener<NetworkEvent>() {
+            @Override
+            public void actionPerformed(NetworkEvent evt) {
+                resultOK = req.getResponseCode() == 200; //Code HTTP 200 OK
+                req.removeResponseListener(this);
+            }
+        });
+        NetworkManager.getInstance().addToQueueAndWait(req);
+        return resultOK;
+     
+     }
+}
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

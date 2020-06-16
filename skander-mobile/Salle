@@ -1,0 +1,42 @@
+package Entities;
+
+/**
+ *
+ * @author tibh
+ */
+public class Salle
+   private int id;
+   private int numero;
+   
+   
+    public Salle() {
+    }
+
+    public Salle( int numero ) {
+        this.numero = numero;
+       
+	   
+	   public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+	
+	   public int getnumero() {
+        return numero;
+    }
+
+    public void setnumero(int numero) {
+        this.numero = numero;
+    }
+	
+	
+	 @Override
+    public String toString() {
+        return "Salle{" id=" + id + ", numero=" + numero + " '}';
+    }
+	
+	
+	
